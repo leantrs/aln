@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
-  align-items: left;
+  align-items: center;
   position: relative;
   overflow: hidden;
   ${mobile({ display: 1 })}
@@ -50,8 +50,9 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  height: 100%;
-  flex: 0;
+  height: 90%;
+
+  flex: 1;
 `;
 
 const Image = styled.img`

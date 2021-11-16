@@ -12,6 +12,7 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`
@@ -85,7 +86,7 @@ const Payment = styled.img`
 const Footer = () => {
   return (
     <Container>
-      <Left>
+      <Center>
         <Logo>@lineLM</Logo>
         <Desc>Qualidade, ética, comprometimento, respeito e simpatia.</Desc>
         <SocialContainer>
@@ -102,35 +103,7 @@ const Footer = () => {
             <Pinterest />
           </SocialIcon>
         </SocialContainer>
-      </Left>
-      {/*
-      <Center>
-        <Title>POLITICAS</Title>
-        <List>
-          <ListItem>Quem Somos</ListItem>
-          <ListItem>Privacidade</ListItem>
-          <ListItem>Prazos de Entrega</ListItem>
-          <ListItem>Trocas e Devolucoes</ListItem>
-          <ListItem>Contate-nos</ListItem>
-        </List>
       </Center>
-     
-      <Right>
-        <Title>Contato</Title>
-        <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> Pero Vaz de Caminha,
-          Curitiba-PR
-        </ContactItem>
-        <ContactItem>
-          <Phone style={{ marginRight: "10px" }} /> 41 98479-3763
-        </ContactItem>
-        <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} />{" "}
-          contato@alineleandro.com.br
-        </ContactItem>
-        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-      </Right>
-      */}
     </Container>
   );
 };

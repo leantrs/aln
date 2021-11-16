@@ -4,10 +4,12 @@ import CategoryItem from "./CategoryItem";
 import { useState, useEffect } from "react";
 
 const Container = styled.div`
-  display: flex;
-  padding: 20px;
-  justify-content: space-between;
-  ${mobile({ padding: "0px", flexDirection: "column" })}
+  with: "100%";
+  max-with: "980px";
+  margin: auto;
+  display: auto;
+  grid-template-colums: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: "20px";
 `;
 
 const Categories = () => {
