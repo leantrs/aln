@@ -60,7 +60,7 @@ const CategoryItem = ({ item }) => {
           to={"/ProductList" + "?" + item.title}
           style={{ textDecoration: "none" }}
         > */}
-        <Button onClick={handleSignIn}>EXIBIR</Button>
+        <Button onClick={handleSignIn}>VER CATALAGO</Button>
         {/* </Link> */}
       </Info>
     </Container>

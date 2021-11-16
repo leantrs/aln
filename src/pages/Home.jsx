@@ -19,7 +19,6 @@ const Home = () => {
   useEffect(
     () => {
       krn();
-
       buscarP();
     }, // eslint-disable-next-line
     [std === true]
@@ -27,7 +26,6 @@ const Home = () => {
 
   async function krn() {
     const keys = Object.keys(localStorage);
-
     const rec = keys.filter(checkar);
 
     function checkar(k) {

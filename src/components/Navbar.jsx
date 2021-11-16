@@ -135,21 +135,22 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>{/*rec && rec["email"]*/}</Language>
+          <Language></Language>
           {/* <SearchContainer>
             <Input placeholder="Pesquisar" />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer> */}
         </Left>
         <Center>
-          <Logo>@lineLM</Logo>
+          <Logo>@lineL </Logo>
         </Center>
         <Right>
-          <Link to={"/Register"} style={{ textDecoration: "none" }}>
-            <MenuItem style={{ paddingLeft: 13 }}>REGISTRAR</MenuItem>
+          {/* <Link to={"/Register"} style={{ textDecoration: "none" }}>
+            <MenuItem style={{ paddingLeft: 13 }}>Registrar</MenuItem>
           </Link>
+           */}
           <Link to={"/Login"} style={{ textDecoration: "none" }}>
-            <MenuItem style={{ paddingLeft: 13 }}>ENTRAR</MenuItem>
+            <MenuItem style={{ paddingLeft: 13 }}>Entrar</MenuItem>
           </Link>
           <MenuItem>
             <Badge badgeContent={Object.keys(todos).length} color="primary">
@@ -159,6 +160,7 @@ const Navbar = () => {
           <Link to={"/Login"} style={{ textDecoration: "none" }}>
             <MenuItem style={{ paddingLeft: 13 }}></MenuItem>
           </Link>
+          {rec && " logado"}
         </Right>
       </Wrapper>
     </Container>

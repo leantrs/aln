@@ -62,8 +62,16 @@ const Icon = styled.div`
   }
 `;
 
+const Title = styled.h1`
+  color: red;
+  fontsize: 5px;
+  margin-bottom: 20px;
+`;
+
 const Product = ({ item }) => {
   const navigate = useNavigate();
+
+  // console.log(item);
 
   async function handleSignIn() {
     // eslint-disable-next-line
@@ -71,13 +79,15 @@ const Product = ({ item }) => {
   }
   return (
     <Container>
-      <Circle />
+      <Circle>
+        <Title>{item.valor}</Title>
+      </Circle>
       <Image src={item.img} />
       <Info>
-        <Icon>
+        {/* <Icon>
           <ShoppingCartOutlined />
         </Icon>
-
+*/}
         <Icon>
           <SearchOutlined onClick={handleSignIn} />
         </Icon>
