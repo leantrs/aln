@@ -28,20 +28,17 @@ const Products = () => {
     }
 
     try {
-      let response = await fetch(
-        "http://localhost/alineleandro/Controller.php",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            pass: "popular",
-            fornc: rec,
-          }),
-        }
-      );
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "popular",
+          fornc: rec,
+        }),
+      });
 
       let json = await response.json();
       setItemsf(json);

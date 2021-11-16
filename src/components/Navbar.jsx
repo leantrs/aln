@@ -12,9 +12,8 @@ import { useDispatch } from "react-redux";
 const Container = styled.div`
   height: 60px;
   background-color: #f5fafd;
-  ${mobile({ height: "50px" })}
+  ${mobile({ padding: "0px", flexDirection: "column" })}
 `;
-
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
@@ -136,7 +135,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>{rec && rec["email"]}</Language>
+          <Language>{/*rec && rec["email"]*/}</Language>
           {/* <SearchContainer>
             <Input placeholder="Pesquisar" />
             <Search style={{ color: "gray", fontSize: 16 }} />
@@ -158,7 +157,7 @@ const Navbar = () => {
             </Badge>
           </MenuItem>
           <Link to={"/Login"} style={{ textDecoration: "none" }}>
-            <MenuItem style={{ paddingLeft: 13 }}>Sair</MenuItem>
+            <MenuItem style={{ paddingLeft: 13 }}></MenuItem>
           </Link>
         </Right>
       </Wrapper>

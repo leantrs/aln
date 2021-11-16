@@ -223,20 +223,17 @@ const Cart = () => {
 
   async function handleSignIn1() {
     try {
-      let response = await fetch(
-        "http://localhost/alineleandro/Controller.php",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            pass: "krn",
-            items: teste,
-          }),
-        }
-      );
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "krn",
+          items: teste,
+        }),
+      });
 
       let json = await response.json();
 

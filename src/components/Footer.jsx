@@ -12,7 +12,6 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
-  ${mobile({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`
@@ -104,6 +103,7 @@ const Footer = () => {
           </SocialIcon>
         </SocialContainer>
       </Left>
+      {/*
       <Center>
         <Title>POLITICAS</Title>
         <List>
@@ -114,6 +114,7 @@ const Footer = () => {
           <ListItem>Contate-nos</ListItem>
         </List>
       </Center>
+     
       <Right>
         <Title>Contato</Title>
         <ContactItem>
@@ -129,6 +130,7 @@ const Footer = () => {
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
+      */}
     </Container>
   );
 };
