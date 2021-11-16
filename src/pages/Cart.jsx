@@ -131,7 +131,9 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-
+  margin: 20px;
+  width: 80%;
+  max-width: 500px;
   height: 50vh;
 `;
 
@@ -302,27 +304,27 @@ const Cart = () => {
               ))}
             <Hr />
           </Info>
-          <Summary>
-            <SummaryTitle>PEDIDO</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>R$ {soma}</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Quantidade</SummaryItemText>
-              <SummaryItemPrice>{quantidade}</SummaryItemPrice>
-            </SummaryItem>
-            {/* <SummaryItem>
+        </Bottom>
+        <Summary>
+          <SummaryTitle>PEDIDO</SummaryTitle>
+          <SummaryItem>
+            <SummaryItemText>Subtotal</SummaryItemText>
+            <SummaryItemPrice>R$ {soma}</SummaryItemPrice>
+          </SummaryItem>
+          <SummaryItem>
+            <SummaryItemText>Quantidade</SummaryItemText>
+            <SummaryItemPrice>{quantidade}</SummaryItemPrice>
+          </SummaryItem>
+          {/* <SummaryItem>
               <SummaryItemText>Shipping Discount</SummaryItemText>
               <SummaryItemPrice>$ -5.90</SummaryItemPrice>
             </SummaryItem> */}
-            <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>R$ {soma}</SummaryItemPrice>
-            </SummaryItem>
-            <Button onClick={handleSignIn1}>COMPRAR</Button>
-          </Summary>
-        </Bottom>
+          <SummaryItem type="total">
+            <SummaryItemText>Total</SummaryItemText>
+            <SummaryItemPrice>R$ {soma}</SummaryItemPrice>
+          </SummaryItem>
+          <Button onClick={handleSignIn1}>COMPRAR</Button>
+        </Summary>
       </Wrapper>
 
       <Footer />
