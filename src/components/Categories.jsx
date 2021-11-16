@@ -1,0 +1,52 @@
+import styled from "styled-components";
+import { mobile } from "../responsive";
+import CategoryItem from "./CategoryItem";
+import { useState, useEffect } from "react";
+
+const Container = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  ${mobile({ padding: "0px", flexDirection: "column" })}
+`;
+
+const Categories = () => {
+  //----------------------------------------------------------
+
+  const [itemsb, setItemsb] = useState(null);
+
+  useEffect(() => {
+    buscarSliders();
+  }, []);
+  //----------------------------------------------------------
+  async function buscarSliders() {
+    try {
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "categoria",
+        }),
+      });
+
+      let json = await response.json();
+      setItemsb(json);
+      // console.log(json);
+    } catch (error) {
+      console.log("223");
+    }
+  }
+
+  //----------------------------------------------------------
+  return (
+    <Container>
+      {itemsb &&
+        itemsb.map((item) => <CategoryItem item={item} key={item.id} />)}
+    </Container>
+  );
+};
+
+export default Categories;
