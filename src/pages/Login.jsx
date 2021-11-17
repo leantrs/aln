@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
 import { useDispatch } from "react-redux";
 import signUser from "../actions/accountActions";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -24,7 +25,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 25%;
+  width: 65%;
   padding: 20px;
   background-color: white;
   ${mobile({ width: "75%" })}
@@ -34,35 +35,6 @@ const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
 `;
-
-// const Form = styled.form`
-//   display: flex;
-//   flex-direction: column;
-// `;
-
-// const Input = styled.input`
-//   flex: 1;
-//   min-width: 40%;
-//   margin: 10px 0;
-//   padding: 10px;
-// `;
-
-// const Button = styled.button`
-//   width: 40%;
-//   border: none;
-//   padding: 15px 20px;
-//   background-color: teal;
-//   color: white;
-//   cursor: pointer;
-//   margin-bottom: 10px;
-// `;
-
-// const Link = styled.a`
-//   margin: 5px 0px;
-//   font-size: 12px;
-//   text-decoration: underline;
-//   cursor: pointer;
-// `;
 
 const Login = () => {
   const [user, setUser] = useState("");
@@ -84,24 +56,7 @@ const Login = () => {
           user: rec,
         };
 
-        // JWT.sign(
-        //   //CRIA UM TOKEN COM EMAIL EMBUTIDO
-        //   {
-        //     iss: "ead-api",
-        //     sub: objUsuario,
-        //     exp: Math.floor(Date.now() / 1000) + 360,
-        //   },
-        //   "09722011km",
-        //   { algorithm: "HS256" },
-        //   function (err, token) {
-        //     if (err) {
-        //       throw new Error("ERR_INVALID-TOKEN");
-        //     }
         localStorage.setItem("pass", rec);
-        //     //console.log(JSON.parse(atob(token.split(".")[1])));
-        //   }
-        // );
-
         await dispatch(signUser(objUsuario)); //DISPARA O EVENTO PARA REDUX
         navigate("/");
       }
@@ -138,6 +93,9 @@ const Login = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
+          <Link to={"/Register"} style={{ textDecoration: "none" }}>
+            Nao tem uma conta? Registre-se
+          </Link>
           <Buttonx
             fullWidth
             variant="contained"

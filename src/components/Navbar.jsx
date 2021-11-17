@@ -145,10 +145,11 @@ const Navbar = () => {
           <Logo>@lineL </Logo>
         </Center>
         <Right>
+          {rec && rec["email"]}
           {/* <Link to={"/Register"} style={{ textDecoration: "none" }}>
             <MenuItem style={{ paddingLeft: 13 }}>Registrar</MenuItem>
           </Link>
-           */}
+*/}
           <Link to={"/Login"} style={{ textDecoration: "none" }}>
             <MenuItem style={{ paddingLeft: 13 }}>Entrar</MenuItem>
           </Link>
@@ -160,7 +161,6 @@ const Navbar = () => {
           <Link to={"/Login"} style={{ textDecoration: "none" }}>
             <MenuItem style={{ paddingLeft: 13 }}></MenuItem>
           </Link>
-          {rec && " logado"}
         </Right>
       </Wrapper>
     </Container>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
@@ -19,7 +19,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 40%;
+  width: 80%;
   padding: 20px;
   background-color: white;
   ${mobile({ width: "75%" })}
@@ -37,6 +37,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   flex: 1;
+
   min-width: 40%;
   margin: 20px 10px 0px 0px;
   padding: 10px;
@@ -75,31 +76,28 @@ const Register = () => {
 
   async function handleSignIn() {
     try {
-      let response = await fetch(
-        "http://localhost/alineleandro/Controller.php",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            pass: "registrar",
-            clienteNome: nome,
-            clienteEndereco: endereco,
-            clienteBairro: bairro,
-            clienteEstado: estado,
-            clienteCidade: cidade,
-            clienteCEP: cep,
-            clienteDocumento: documento,
-            clienteSenha: senha,
-            clienteConfirmacaoSenha: confirmacaoSenha,
-            clienteEmail: email,
-            clienteCelular: celular,
-            clienteNascimento: nascimento,
-          }),
-        }
-      );
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "registrar",
+          clienteNome: nome,
+          clienteEndereco: endereco,
+          clienteBairro: bairro,
+          clienteEstado: estado,
+          clienteCidade: cidade,
+          clienteCEP: cep,
+          clienteDocumento: documento,
+          clienteSenha: senha,
+          clienteConfirmacaoSenha: confirmacaoSenha,
+          clienteEmail: email,
+          clienteCelular: celular,
+          clienteNascimento: nascimento,
+        }),
+      });
 
       let json = await response.json();
       setMsg(json);
