@@ -78,13 +78,15 @@ const Navbar = () => {
   //const account = useSelector((state) => state.account.user);
   const dispatch = useDispatch();
   const [rec, setRec] = useState("Default");
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("20");
   const [estado, setEstado] = useState(false);
 
   useEffect(
     () => {
-      rsn();
-      comparar();
+      if (estado === false) {
+        rsn();
+        comparar();
+      }
     }, // eslint-disable-next-line
     [estado]
   );
@@ -93,9 +95,11 @@ const Navbar = () => {
     const userx = JSON.stringify(localStorage.getItem("pass"));
     setUser(userx);
 
-    if (userx !== "null") {
+    if (userx === "20" || userx === "null") {
+      //console.log("invalido");
+    } else {
       setRec(JSON.parse(atob(userx.split(".")[1])));
-      //    console.log(JSON.parse(atob(user.split(".")[1])));
+      // console.log("valido");
     }
 
     setEstado(true);
@@ -125,8 +129,12 @@ const Navbar = () => {
         console.log("token valido");
         await dispatch(signUser(user));
       } else {
-        console.log("token invalido");
-        await localStorage.removeItem("pass");
+        if (rec === "Default") {
+          localStorage.setItem("pass", "20");
+        }
+        //console.log(rec);
+
+        //await localStorage.removeItem("pass");
       }
     }
   }

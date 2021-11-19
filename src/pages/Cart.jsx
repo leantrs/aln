@@ -175,11 +175,24 @@ const Cart = () => {
   const [teste, setTeste] = useState(null);
   const dispatch = useDispatch();
   const [soma, setSoma] = useState(0);
+  const [estado, setEstado] = useState(false);
+  const [estado2, setEstado2] = useState(false);
   const [quantidade, setQuantidade] = useState(0);
   const navigate = useNavigate();
+  const [rec, setRec] = useState("Default");
+
+  const userx = JSON.stringify(localStorage.getItem("pass"));
 
   useEffect(
     () => {
+      if (estado2 === false) {
+        if (userx === "20" || userx === "null") {
+          // console.log("invalido");
+        } else {
+          setEstado(true);
+          //console.log("valido");
+        }
+      }
       krn();
     }, // eslint-disable-next-line
     []
@@ -214,6 +227,15 @@ const Cart = () => {
 
       setTeste(Array.from(recx));
     }
+    setEstado2(true);
+  }
+
+  async function pegarEmail() {
+    const userx = await JSON.stringify(localStorage.getItem("pass"));
+
+    setRec(JSON.parse(atob(userx.split(".")[1])));
+
+    return rec["email"];
   }
 
   async function handleSignIn(rec) {
@@ -225,26 +247,33 @@ const Cart = () => {
 
   async function handleSignIn1() {
     try {
-      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          pass: "krn",
-          items: teste,
-        }),
-      });
+      if (estado === true) {
+        const email = await pegarEmail();
 
-      let json = await response.json();
+        let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            pass: "krn",
+            email: email,
+            items: teste,
+          }),
+        });
 
-      let rec = json[0];
+        let json = await response.json();
 
-      // window.location.replace("http://www.google.com");
-      window.location.href =
-        "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" +
-        rec;
+        console.log(json);
+
+        // let rec = json[0]; // gera o codigo para pagseguro
+        // window.location.href =
+        //  "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" +
+        // rec;
+      } else {
+        navigate("/Login");
+      }
     } catch (error) {
       console.log("225");
     }

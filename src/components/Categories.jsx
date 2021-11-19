@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { mobile } from "../responsive";
 import CategoryItem from "./CategoryItem";
 import { useState, useEffect } from "react";
 
@@ -38,7 +37,7 @@ const Categories = () => {
       setItemsb(json);
       // console.log(json);
     } catch (error) {
-      console.log("223");
+      //  console.log("223");
     }
   }
 

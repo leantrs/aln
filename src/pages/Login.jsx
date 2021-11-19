@@ -57,6 +57,7 @@ const Login = () => {
         };
 
         localStorage.setItem("pass", rec);
+
         await dispatch(signUser(objUsuario)); //DISPARA O EVENTO PARA REDUX
         navigate("/");
       }

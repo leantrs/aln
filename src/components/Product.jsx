@@ -1,4 +1,4 @@
-import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
+import { SearchOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
