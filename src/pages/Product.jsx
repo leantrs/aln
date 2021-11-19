@@ -115,7 +115,8 @@ const Button = styled.button`
   }
 `;
 const Imagex = styled.img`
-  max-width: 100%;
+  width: 100%;
+  min-width: 70px;
   height: auto;
 `;
 
