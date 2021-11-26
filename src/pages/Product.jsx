@@ -171,7 +171,7 @@ const Product = () => {
         titulo: itemsf[0].titulo,
         fornecedor: itemsf[0].fornecedor,
         valor: soma,
-        valororiginal: itemsf[0].valor,
+        valororiginal: Number(itemsf[0].valor),
         img: itemsf[0].img,
         total: count,
       };

@@ -61,6 +61,7 @@ const Button = styled.button`
 const Register = () => {
   const [nome, setNome] = useState("");
   const [endereco, setEndereco] = useState("");
+  const [numero, setNumero] = useState("");
   const [bairro, setBairro] = useState("");
   const [estado, setEstado] = useState("");
   const [cidade, setCidade] = useState("");
@@ -86,6 +87,7 @@ const Register = () => {
           pass: "registrar",
           clienteNome: nome,
           clienteEndereco: endereco,
+          clienteNumero: numero,
           clienteBairro: bairro,
           clienteEstado: estado,
           clienteCidade: cidade,
@@ -124,6 +126,11 @@ const Register = () => {
             placeholder="Endereco"
             value={endereco}
             onChange={(event) => setEndereco(event.target.value)}
+          />
+          <Input
+            placeholder="Numero"
+            value={numero}
+            onChange={(event) => setNumero(event.target.value)}
           />
           <Input
             placeholder="Bairro"

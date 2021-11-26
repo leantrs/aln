@@ -96,10 +96,12 @@ const Navbar = () => {
     setUser(userx);
 
     if (userx === "20" || userx === "null") {
-      //console.log("invalido");
+      // console.log("invalido");
     } else {
       setRec(JSON.parse(atob(userx.split(".")[1])));
       // console.log("valido");
+      //  console.log(userx);
+      dispatch(signUser(userx));
     }
 
     setEstado(true);

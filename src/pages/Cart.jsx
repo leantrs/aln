@@ -8,6 +8,7 @@ import React, { useState, useEffect } from "react";
 import cartkrn from "../actions/cartAction";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+//import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -180,40 +181,56 @@ const Cart = () => {
   const [quantidade, setQuantidade] = useState(0);
   const navigate = useNavigate();
   const [rec, setRec] = useState("Default");
+  const [itt, setItt] = useState(null);
+
+  //const account = useSelector((state) => state.account.user);
 
   const userx = JSON.stringify(localStorage.getItem("pass"));
 
   useEffect(
     () => {
-      if (estado2 === false) {
-        if (userx === "20" || userx === "null") {
-          // console.log("invalido");
-        } else {
-          setEstado(true);
-          //console.log("valido");
-        }
-      }
+      //console.log(account);
       krn();
     }, // eslint-disable-next-line
     []
   );
 
+  useEffect(
+    () => {
+      if (userx === "20" || userx === "null") {
+        // console.log("invalido");
+      } else {
+        setEstado(true);
+        pegarEmail();
+        //  console.log("valido");
+      }
+    }, // eslint-disable-next-line
+    [estado2 === true]
+  );
+
   async function krn() {
     const keys = Object.keys(localStorage);
-
     const rec = keys.filter(checkar);
-
+    setItt(rec);
+    //----------------------------------------------------
+    // pegar todos itens do localStorage menos "pass"
     function checkar(k) {
       return k !== "pass";
     }
+    //----------------------------------------------------
 
+    //----------------------------------------------------
+    // percorre o local storage e pega todos os itens do carrinho
     const recx = rec.map((item) => {
       return JSON.parse(localStorage.getItem(item));
     });
+    //----------------------------------------------------
 
     let valor = 0;
     let quantidade = 0;
 
+    //----------------------------------------------------
+    // calcular o valor e a quantidate
     recx.forEach((item) => {
       valor += item.valor;
       quantidade += item.total;
@@ -221,19 +238,23 @@ const Cart = () => {
 
     setSoma(valor);
     setQuantidade(quantidade);
+    //---------------------------------------------------
 
     if (recx !== null) {
       dispatch(cartkrn(recx));
-
       setTeste(Array.from(recx));
     }
+    //---------------------------------------------------
+    //ativa o estado2 para true (sera possivel resgar o email)
     setEstado2(true);
+    //---------------------------------------------------
   }
 
   async function pegarEmail() {
     const userx = await JSON.stringify(localStorage.getItem("pass"));
 
-    setRec(JSON.parse(atob(userx.split(".")[1])));
+    const teste = JSON.parse(atob(userx.split(".")[1]));
+    setRec(teste);
 
     return rec["email"];
   }
@@ -265,12 +286,16 @@ const Cart = () => {
 
         let json = await response.json();
 
-        console.log(json);
+        let reca = json[0]; // gera o codigo para pagseguro
 
-        // let rec = json[0]; // gera o codigo para pagseguro
-        // window.location.href =
-        //  "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" +
-        // rec;
+        window.location.href =
+          "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" +
+          reca;
+
+        itt.map((item) => {
+          localStorage.removeItem(item);
+          return item;
+        });
       } else {
         navigate("/Login");
       }
