@@ -289,7 +289,8 @@ const Cart = () => {
         let reca = json[0]; // gera o codigo para pagseguro
 
         window.location.href =
-          "https://pagseguro.uol.com.br/v2/checkout/payment.html?code=" + reca;
+          "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" +
+          reca;
 
         itt.map((item) => {
           localStorage.removeItem(item);
