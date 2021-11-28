@@ -115,7 +115,10 @@ const Slider = () => {
           data.map((item) => (
             <Slide bg={item.bg} key={item.id}>
               <ImgContainer>
-                <Image src={item.img} />
+                <Image
+                  src={item.img}
+                  onClick={(event) => handleSignIn(item.id)}
+                />
               </ImgContainer>
 
               <InfoContainer>

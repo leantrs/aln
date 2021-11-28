@@ -78,7 +78,7 @@ const Product = ({ item }) => {
     navigate("/Product" + "?" + item.id);
   }
   return (
-    <Container>
+    <Container onClick={(event) => handleSignIn(item.id)}>
       <Circle>
         <Title></Title>
       </Circle>
@@ -87,10 +87,11 @@ const Product = ({ item }) => {
         {/* <Icon>
           <ShoppingCartOutlined />
         </Icon>
-*/}
+
         <Icon>
           <SearchOutlined onClick={handleSignIn} />
         </Icon>
+        */}
       </Info>
     </Container>
   );
