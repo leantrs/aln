@@ -1,4 +1,4 @@
-import { SearchOutlined } from "@material-ui/icons";
+//import { SearchOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -45,7 +45,7 @@ const Image = styled.img`
   height: 75%;
   z-index: 2;
 `;
-
+/*
 const Icon = styled.div`
   width: 40px;
   height: 40px;
@@ -61,7 +61,7 @@ const Icon = styled.div`
     transform: scale(1.1);
   }
 `;
-
+*/
 const Title = styled.h1`
   color: red;
   fontsize: 5px;
