@@ -45,6 +45,11 @@ const Price = styled.span`
   font-size: 40px;
 `;
 
+const Pricex = styled.span`
+  font-weight: 60;
+  font-size: 20px;
+  color: red;
+`;
 const FilterContainer = styled.div`
   width: 50%;
   margin: 30px 0px;
@@ -105,6 +110,7 @@ const Amount = styled.span`
 `;
 
 const Button = styled.button`
+  margin-top: 15px;
   padding: 15px;
   border: 2px solid teal;
   background-color: white;
@@ -117,6 +123,7 @@ const Button = styled.button`
 const Imagex = styled.img`
   width: 100%;
   min-width: 70px;
+  max-width: 500px;
   height: auto;
 `;
 
@@ -187,14 +194,22 @@ const Product = () => {
     <Container>
       <Navbar />
       <Announcement />
+      <ImgContainer>
+        <Imagex src={itemsf && itemsf.map((item) => item.img)} />
+      </ImgContainer>
       <Wrapper>
-        <ImgContainer>
-          <Imagex src={itemsf && itemsf.map((item) => item.img)} />
-        </ImgContainer>
         <InfoContainer>
           <Title>{itemsf && itemsf.map((item) => item.titulo)} </Title>
-          <Desc>{itemsf && itemsf.map((item) => item.descr)}</Desc>
-          <Price>R${itemsf && itemsf.map((item) => item.valor * count)} </Price>
+          <Desc>- {itemsf && itemsf.map((item) => item.descr)}</Desc>
+          <Desc>- {itemsf && itemsf.map((item) => item.ingredientes)}</Desc>
+          <Desc>- {itemsf && itemsf.map((item) => item.forma_do_produto)}</Desc>
+          <Desc>- {itemsf && itemsf.map((item) => item.como_usar)}</Desc>
+          <Desc>- {itemsf && itemsf.map((item) => item.tipo_de_pele)}</Desc>
+          <Desc>- {itemsf && itemsf.map((item) => item.sobre_este_item)}</Desc>
+          <Pricex>Apenas </Pricex>
+          <Price>
+            R$ {itemsf && itemsf.map((item) => item.valor * count)}{" "}
+          </Price>
           <FilterContainer>
             {/* <Filter>
               <FilterTitle>Color</FilterTitle>
@@ -219,8 +234,8 @@ const Product = () => {
               <Amount>{count}</Amount>
               <Add onClick={() => setCount(count + 1)} />
             </AmountContainer>
-            <Button onClick={handleSignIn}>ADICIONAR</Button>
           </AddContainer>
+          <Button onClick={handleSignIn}>ADICIONAR</Button>
         </InfoContainer>
       </Wrapper>
 

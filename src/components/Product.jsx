@@ -80,7 +80,7 @@ const Product = ({ item }) => {
   return (
     <Container>
       <Circle>
-        <Title>{item.valor}</Title>
+        <Title></Title>
       </Circle>
       <Image src={item.img} />
       <Info>
