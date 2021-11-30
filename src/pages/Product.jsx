@@ -206,7 +206,7 @@ const Product = () => {
           <Desc>- {itemsf && itemsf.map((item) => item.como_usar)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.tipo_de_pele)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.sobre_este_item)}</Desc>
-          <Pricex>Apenas </Pricex>
+          <Pricex>Por apenas: </Pricex>
           <Price>
             R$ {itemsf && itemsf.map((item) => item.valor * count)}{" "}
           </Price>

@@ -37,7 +37,6 @@ const Form = styled.form`
 
 const Input = styled.input`
   flex: 0;
-
   min-width: 40%;
   margin: 20px 5px 10px 0px;
   padding: 10px;
@@ -153,11 +152,19 @@ const Register = () => {
             value={cep}
             onChange={(event) => setCep(event.target.value)}
           />
+
           <Input
             placeholder="Cpf"
             value={documento}
             onChange={(event) => setDocumento(event.target.value)}
           />
+          {/*
+          <Input
+            placeholder="Cpf"
+            value={documento}
+            onChange={(event) => setDocumento(event.target.value)}
+          />
+*/}
           <Input
             placeholder="Email"
             value={email}
