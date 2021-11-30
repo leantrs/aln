@@ -50,6 +50,7 @@ const Pricex = styled.span`
   font-size: 15px;
   color: red;
 `;
+
 const FilterContainer = styled.div`
   width: 50%;
   margin: 30px 0px;
@@ -58,32 +59,33 @@ const FilterContainer = styled.div`
   ${mobile({ width: "100%" })}
 `;
 
-// const Filter = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
+const Filter = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-// const FilterTitle = styled.span`
-//   font-size: 20px;
-//   font-weight: 200;
-// `;
+const FilterTitle = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+`;
 
-// const FilterColor = styled.div`
-//   width: 20px;
-//   height: 20px;
-//   border-radius: 50%;
-//   background-color: ${(props) => props.color};
-//   margin: 0px 5px;
-//   cursor: pointer;
-// `;
+const FilterColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 0px 5px;
+  cursor: pointer;
+`;
 
-// const FilterSize = styled.select`
-//   margin-left: 10px;
-//   padding: 5px;
-// `;
+/*
+const FilterSize = styled.select`
+  margin-left: 10px;
+  padding: 5px;
+`;
 
-// const FilterSizeOption = styled.option``;
-
+const FilterSizeOption = styled.option``;
+*/
 const AddContainer = styled.div`
   width: 50%;
   display: flex;
@@ -129,17 +131,21 @@ const Imagex = styled.img`
 
 const Product = () => {
   const [itemsf, setItemsf] = useState("");
+  const [itemsm, setItemsm] = useState("");
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
+  const [estado, setEstado] = useState(false);
 
   useEffect(
     () => {
+      setEstado(false);
+      //      console.log(estado + "1");
       const url = window.location.href;
       const res = url.split("?");
 
       buscarSliders(res[1]);
     }, // eslint-disable-next-line
-    []
+    [estado]
   );
 
   async function buscarSliders(rec) {
@@ -161,7 +167,12 @@ const Product = () => {
       });
 
       let json = await response.json();
+      //console.log(json);
       setItemsf(json);
+      //console.log(json[0].titulo);
+      buscarSubCategoria(json[0].titulo);
+
+      //  console.log(json);
     } catch (error) {
       if (itemsf !== null) {
         //  console.log("223");
@@ -190,6 +201,39 @@ const Product = () => {
     } catch (error) {}
   }
 
+  async function buscarSubCategoria(rec2) {
+    try {
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "subcategoria",
+          fornc: rec2,
+        }),
+      });
+
+      let json = await response.json();
+      setItemsm(json);
+      //  console.log(json);
+    } catch (error) {
+      if (itemsm !== null) {
+        console.log("224");
+      }
+    }
+  }
+
+  async function handleSignIn2(rec) {
+    setEstado(true);
+    // eslint-disable-next-line
+    navigate("/Product" + "?" + rec);
+    //  console.log(rec);
+
+    //  window.location.reload();
+  }
+
   return (
     <Container>
       <Navbar />
@@ -206,17 +250,24 @@ const Product = () => {
           <Desc>- {itemsf && itemsf.map((item) => item.como_usar)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.tipo_de_pele)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.sobre_este_item)}</Desc>
-          <Pricex>Por apenas: </Pricex>
-          <Price>
-            R$ {itemsf && itemsf.map((item) => item.valor * count)}{" "}
-          </Price>
+          <Pricex>Por Apenas: </Pricex>
+          <Price>R$ {itemsf && itemsf.map((item) => item.valor * count)}</Price>
+
           <FilterContainer>
-            {/* <Filter>
+            <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+
+              {itemsm &&
+                itemsm.map((item) => (
+                  <FilterColor
+                    item={item}
+                    key={item.produtoID}
+                    color={item.bg}
+                    onClick={() => handleSignIn2(item.produtoID)}
+                  />
+                ))}
             </Filter>
+            {/*
             <Filter>
               <FilterTitle>Size</FilterTitle>
               <FilterSize>
@@ -226,8 +277,10 @@ const Product = () => {
                 <FilterSizeOption>L</FilterSizeOption>
                 <FilterSizeOption>XL</FilterSizeOption>
               </FilterSize>
-            </Filter> */}
+            </Filter>
+             */}
           </FilterContainer>
+
           <AddContainer>
             <AmountContainer>
               <Remove onClick={() => setCount(count - 1)} />
