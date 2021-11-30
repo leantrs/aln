@@ -129,6 +129,34 @@ const Imagex = styled.img`
   height: auto;
 `;
 
+
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+`;
+
+const TopButton = styled.button`
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: ${(props) => props.type === "filled" && "none"};
+  background-color: ${(props) =>
+    props.type === "filled" ? "black" : "transparent"};
+  color: ${(props) => props.type === "filled" && "white"};
+`;
+
+// const TopTexts = styled.div`
+//   ${mobile({ display: "none" })}
+// `;
+// const TopText = styled.span`
+//   text-decoration: underline;
+//   cursor: pointer;
+//   margin: 0px 10px;
+// `;
+
+
 const Product = () => {
   const [itemsf, setItemsf] = useState("");
   const [itemsm, setItemsm] = useState("");
@@ -228,16 +256,31 @@ const Product = () => {
   async function handleSignIn2(rec) {
     setEstado(true);
     // eslint-disable-next-line
-    navigate("/Product" + "?" + rec);
-    //  console.log(rec);
-
-    //  window.location.reload();
+     navigate("/Product" + "?" + rec);
+    
+  }
+ async function handleSignIn3() {
+    setEstado(true);
+    // eslint-disable-next-line
+     navigate("/");
+    
   }
 
   return (
     <Container>
       <Navbar />
       <Announcement />
+       <Top>
+          <Title>Meus Produtos</Title>
+
+          <TopButton onClick={handleSignIn3}>HOME</TopButton>
+
+          {/* <TopTexts>
+            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Your Wishlist (0)</TopText>
+          </TopTexts> */}
+          {/* <TopButton type="filled">CHECKOUT NOW</TopButton> */}
+        </Top>
       <ImgContainer>
         <Imagex src={itemsf && itemsf.map((item) => item.img)} />
       </ImgContainer>
