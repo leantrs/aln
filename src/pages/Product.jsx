@@ -129,7 +129,6 @@ const Imagex = styled.img`
   height: auto;
 `;
 
-
 const Top = styled.div`
   display: flex;
   align-items: center;
@@ -155,7 +154,6 @@ const TopButton = styled.button`
 //   cursor: pointer;
 //   margin: 0px 10px;
 // `;
-
 
 const Product = () => {
   const [itemsf, setItemsf] = useState("");
@@ -256,37 +254,36 @@ const Product = () => {
   async function handleSignIn2(rec) {
     setEstado(true);
     // eslint-disable-next-line
-     navigate("/Product" + "?" + rec);
-    
+    navigate("/Product" + "?" + rec);
   }
- async function handleSignIn3() {
+  async function handleSignIn3() {
     setEstado(true);
     // eslint-disable-next-line
-     navigate("/");
-    
+    navigate("/");
   }
 
   return (
     <Container>
       <Navbar />
       <Announcement />
-       <Top>
-          <Title>Meus Produtos</Title>
+      <Top>
+        <Title>{itemsf && itemsf.map((item) => item.fornecedor)}</Title>
 
-          <TopButton onClick={handleSignIn3}>HOME</TopButton>
+        <TopButton onClick={handleSignIn3}>HOME</TopButton>
 
-          {/* <TopTexts>
+        {/* <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts> */}
-          {/* <TopButton type="filled">CHECKOUT NOW</TopButton> */}
-        </Top>
+        {/* <TopButton type="filled">CHECKOUT NOW</TopButton> */}
+      </Top>
       <ImgContainer>
         <Imagex src={itemsf && itemsf.map((item) => item.img)} />
       </ImgContainer>
       <Wrapper>
         <InfoContainer>
           <Title>{itemsf && itemsf.map((item) => item.titulo)} </Title>
+          <Desc>- Cod: {itemsf && itemsf.map((item) => item.ref)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.descr)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.ingredientes)}</Desc>
           <Desc>- {itemsf && itemsf.map((item) => item.forma_do_produto)}</Desc>
