@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Sliderx from "../components/Sliderx";
 import { mobile } from "../responsive";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,10 +14,6 @@ const Wrapper = styled.div`
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection: "column" })}
-`;
-
-const ImgContainer = styled.div`
-  flex: 1;
 `;
 
 // const Image = styled.img`
@@ -78,14 +75,13 @@ const FilterColor = styled.div`
   cursor: pointer;
 `;
 
-/*
 const FilterSize = styled.select`
   margin-left: 10px;
   padding: 5px;
 `;
 
 const FilterSizeOption = styled.option``;
-*/
+
 const AddContainer = styled.div`
   width: 50%;
   display: flex;
@@ -122,12 +118,6 @@ const Button = styled.button`
     background-color: #f8f4f4;
   }
 `;
-const Imagex = styled.img`
-  width: 100%;
-  min-width: 70px;
-  max-width: 500px;
-  height: auto;
-`;
 
 const Top = styled.div`
   display: flex;
@@ -158,6 +148,9 @@ const TopButton = styled.button`
 const Product = () => {
   const [itemsf, setItemsf] = useState("");
   const [itemsm, setItemsm] = useState("");
+  const [itemsk, setItemsk] = useState("");
+  const [itemsr, setItemsr] = useState("");
+  const [tamanho, setTamanho] = useState("");
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
   const [estado, setEstado] = useState(false);
@@ -166,13 +159,19 @@ const Product = () => {
     () => {
       setEstado(false);
       //      console.log(estado + "1");
-      const url = window.location.href;
-      const res = url.split("?");
-
-      buscarSliders(res[1]);
+      link();
     }, // eslint-disable-next-line
     [estado]
   );
+
+  async function link() {
+    const url = window.location.href;
+    const res = url.split("?");
+
+    buscarSliders(res[1]);
+    buscarProdutostam(res[1]);
+    buscarProdutosimg(res[1]);
+  }
 
   async function buscarSliders(rec) {
     if (rec === undefined) {
@@ -218,8 +217,10 @@ const Product = () => {
         valororiginal: Number(itemsf[0].valor),
         img: itemsf[0].img,
         total: count,
+        tamanho,
       };
 
+      // console.log(itemx);
       const armaz = JSON.stringify(itemx);
       localStorage.setItem(itemsf[0].id, armaz);
 
@@ -243,9 +244,56 @@ const Product = () => {
 
       let json = await response.json();
       setItemsm(json);
-      //  console.log(json);
     } catch (error) {
       if (itemsm !== null) {
+        console.log("224");
+      }
+    }
+  }
+
+  async function buscarProdutosimg(rec) {
+    try {
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "produtosImg",
+          fornc: rec,
+        }),
+      });
+
+      let json = await response.json();
+
+      setItemsr(json);
+    } catch (error) {
+      if (itemsf !== null) {
+        console.log("253");
+      }
+    }
+  }
+
+  async function buscarProdutostam(rec3) {
+    try {
+      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pass: "produtosTam",
+          fornc: rec3,
+        }),
+      });
+
+      let json = await response.json();
+      setItemsk(json);
+      //console.log(json);
+    } catch (error) {
+      if (itemsk !== null) {
         console.log("224");
       }
     }
@@ -254,7 +302,9 @@ const Product = () => {
   async function handleSignIn2(rec) {
     setEstado(true);
     // eslint-disable-next-line
+
     navigate("/Product" + "?" + rec);
+    link();
   }
   async function handleSignIn3() {
     setEstado(true);
@@ -270,16 +320,12 @@ const Product = () => {
         <Title>{itemsf && itemsf.map((item) => item.fornecedor)}</Title>
 
         <TopButton onClick={handleSignIn3}>HOME</TopButton>
-
-        {/* <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts> */}
-        {/* <TopButton type="filled">CHECKOUT NOW</TopButton> */}
       </Top>
-      <ImgContainer>
-        <Imagex src={itemsf && itemsf.map((item) => item.img)} />
-      </ImgContainer>
+      <Sliderx
+        key={itemsr && itemsr.map((item) => item.imagem)}
+        item={itemsr && itemsr.map((item) => item.imagem)}
+      />
+
       <Wrapper>
         <InfoContainer>
           <Title>{itemsf && itemsf.map((item) => item.titulo)} </Title>
@@ -307,18 +353,19 @@ const Product = () => {
                   />
                 ))}
             </Filter>
-            {/*
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-             */}
+            {
+              <Filter>
+                <FilterTitle>Tam</FilterTitle>
+                <FilterSize
+                  onChange={(event) => setTamanho(event.target.value)}
+                >
+                  {itemsk &&
+                    itemsk.map((item) => (
+                      <FilterSizeOption>{item.tamanho}</FilterSizeOption>
+                    ))}
+                </FilterSize>
+              </Filter>
+            }
           </FilterContainer>
 
           <AddContainer>

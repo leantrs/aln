@@ -336,6 +336,9 @@ const Cart = () => {
                       <ProductName>
                         <b>Produto:</b> {item.titulo}
                       </ProductName>
+                      <ProductName>
+                        <b>Tamanho:</b> {item.tamanho}
+                      </ProductName>
                       <ProductId>
                         <b>ID:</b> {item.id}
                       </ProductId>

@@ -1,9 +1,8 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useState /*, useEffect*/ } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+
 import { mobile } from "../responsive";
-import { useSelector } from "react-redux";
 
 const Container = styled.div`
   width: 100%;
@@ -60,38 +59,18 @@ const Image = styled.img`
   width: auto;
   max-width: 400px;
 `;
-
-const InfoContainer = styled.div`
-  flex: 1;
-  padding: 50px;
-`;
-
-const Title = styled.h1`
-  font-size: 70px;
-`;
-
-const Desc = styled.p`
-  margin: 50px 0px;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 3px;
-`;
-/*
-const Button = styled.button`
-  padding: 10px;
-  font-size: 20px;
-  background-color: transparent;
-  cursor: pointer;
-`;
-*/
-const Slider = () => {
+const Sliderx = ({ item }) => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const navigate = useNavigate();
-  const todos = useSelector((state) => state.lista.listax);
 
-  const data = Array.from(todos);
+  const [itemsf, setItemsf] = useState("");
 
-  // console.log(data);
+  useEffect(
+    () => {
+      // console.log(item);
+      setItemsf(item);
+    }, // eslint-disable-next-line
+    []
+  );
 
   const handleClick = (direction) => {
     if (direction === "left") {
@@ -100,42 +79,25 @@ const Slider = () => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
-
+  /*
   async function handleSignIn(rec) {
     // eslint-disable-next-line
     navigate("/Product" + "?" + rec);
     //  console.log(rec);
   }
-
+*/
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
-        {data &&
-          data.map((item) => (
-            <Slide bg={item.bg} key={item.id}>
+        {itemsf &&
+          itemsf.map((item) => (
+            <Slide key={item}>
               <ImgContainer>
-                <Image
-                  src={item.img}
-                  onClick={(event) => handleSignIn(item.id)}
-                />
+                <Image src={item} />
               </ImgContainer>
-
-              <InfoContainer>
-                <Title>{item.title}</Title>
-                <Desc>{item.descr}</Desc>
-                {/*
-                <Button
-                  value={item.idb}
-                  onClick={(event) => handleSignIn(item.id)}
-                  // onClick={(event) => handleSignIn(event.target.value)}
-                >
-                  DETALHES
-                </Button>
-*/}
-              </InfoContainer>
             </Slide>
           ))}
       </Wrapper>
@@ -146,4 +108,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Sliderx;
