@@ -6,7 +6,7 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -34,7 +34,7 @@ const Arrow = styled.div`
 `;
 
 const Wrapper = styled.div`
-  height: 100%;
+  height: 70%;
   display: flex;
   transition: all 1.5s ease;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
@@ -49,13 +49,13 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  height: 90%;
+  height: 75%;
 
   flex: 1;
 `;
 
 const Image = styled.img`
-  height: 60%;
+  height: auto;
   width: auto;
   max-width: 400px;
 `;
