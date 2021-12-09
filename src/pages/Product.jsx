@@ -341,7 +341,7 @@ const Product = () => {
 
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
+              <FilterTitle>Cor</FilterTitle>
 
               {itemsm &&
                 itemsm.map((item) => (
