@@ -218,6 +218,7 @@ const Product = () => {
         img: itemsf[0].img,
         total: count,
         tamanho,
+        ref: itemsf[0].ref,
       };
 
       // console.log(itemx);

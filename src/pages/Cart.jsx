@@ -256,6 +256,8 @@ const Cart = () => {
     const teste = JSON.parse(atob(userx.split(".")[1]));
     setRec(teste);
 
+    console.log(teste);
+
     return rec["email"];
   }
 
