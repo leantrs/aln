@@ -5,6 +5,7 @@ import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 //import { useSelector } from "react-redux";
 
 const Container = styled.div``;
@@ -23,6 +24,23 @@ const Filter = styled.div`
   ${mobile({ width: "0px 20px", display: "flex", flexDirection: "column" })}
 `;
 
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+`;
+
+const TopButton = styled.button`
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: ${(props) => props.type === "filled" && "none"};
+  background-color: ${(props) =>
+    props.type === "filled" ? "black" : "transparent"};
+  color: ${(props) => props.type === "filled" && "white"};
+`;
+
 // const FilterText = styled.span`
 //   font-size: 20px;
 //   font-weight: 600;
@@ -39,6 +57,7 @@ const Filter = styled.div`
 
 const ProductList = () => {
   const [titulo, setTitulo] = useState(null);
+  const navigate = useNavigate();
   //const account = useSelector((state) => state.user);
   // let rec = Object.values(account);
 
@@ -52,11 +71,21 @@ const ProductList = () => {
     console.log(res[1]);
   }, []);
 
+  async function handleSignIn3() {
+    // eslint-disable-next-line
+    navigate("/");
+  }
+
   return (
     <Container>
       <Navbar />
       <Announcement />
-      <Title>{titulo}</Title>
+      <Top>
+        <Title>{titulo}</Title>
+
+        <TopButton onClick={handleSignIn3}>HOME</TopButton>
+      </Top>
+
       <FilterContainer>
         <Filter>
           {/* <FilterText>Filter Products:</FilterText>
