@@ -236,8 +236,9 @@ const Cart = () => {
       quantidade += item.total;
     });
 
-    setSoma(valor);
+    setSoma(valor.toFixed(2));
     setQuantidade(quantidade);
+
     //---------------------------------------------------
 
     if (recx !== null) {
@@ -256,7 +257,7 @@ const Cart = () => {
     const teste = JSON.parse(atob(userx.split(".")[1]));
     setRec(teste);
 
-    console.log(teste);
+    //console.log(teste);
 
     return rec["email"];
   }
@@ -302,7 +303,7 @@ const Cart = () => {
         navigate("/Login");
       }
     } catch (error) {
-      console.log("225");
+      // console.log("225");
     }
   }
   async function handleSignIn2() {

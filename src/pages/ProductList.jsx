@@ -66,9 +66,9 @@ const ProductList = () => {
   useEffect(() => {
     const url = window.location.href;
     const res = url.split("?");
-    console.log(url);
+    // console.log(url);
     setTitulo(res[1]);
-    console.log(res[1]);
+    // console.log(res[1]);
   }, []);
 
   async function handleSignIn3() {

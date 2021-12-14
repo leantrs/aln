@@ -251,7 +251,7 @@ const Product = () => {
       setItemsm(json);
     } catch (error) {
       if (itemsm !== null) {
-        console.log("224");
+        // console.log("224");
       }
     }
   }
@@ -275,7 +275,7 @@ const Product = () => {
       setItemsr(json);
     } catch (error) {
       if (itemsf !== null) {
-        console.log("253");
+        //console.log("253");
       }
     }
   }
@@ -299,7 +299,7 @@ const Product = () => {
       //console.log(json);
     } catch (error) {
       if (itemsk !== null) {
-        console.log("224");
+        // console.log("224");
       }
     }
   }
@@ -307,7 +307,6 @@ const Product = () => {
   async function handleSignIn2(rec) {
     setEstado(true);
     // eslint-disable-next-line
-
     navigate("/Product" + "?" + rec);
     link();
   }
