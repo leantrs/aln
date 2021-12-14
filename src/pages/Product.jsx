@@ -206,27 +206,31 @@ const Product = () => {
   }
 
   async function handleSignIn() {
-    try {
-      let soma = itemsf[0].valor * count;
+    if (tamanho === "") {
+      alert("olá! Necessário escolher o tamanho");
+    } else {
+      try {
+        let soma = itemsf[0].valor * count;
 
-      const itemx = {
-        id: itemsf[0].id,
-        titulo: itemsf[0].titulo,
-        fornecedor: itemsf[0].fornecedor,
-        valor: soma,
-        valororiginal: Number(itemsf[0].valor),
-        img: itemsf[0].img,
-        total: count,
-        tamanho,
-        ref: itemsf[0].ref,
-      };
+        const itemx = {
+          id: itemsf[0].id,
+          titulo: itemsf[0].titulo,
+          fornecedor: itemsf[0].fornecedor,
+          valor: soma,
+          valororiginal: Number(itemsf[0].valor),
+          img: itemsf[0].img,
+          total: count,
+          tamanho,
+          ref: itemsf[0].ref,
+        };
 
-      // console.log(itemx);
-      const armaz = JSON.stringify(itemx);
-      localStorage.setItem(itemsf[0].id, armaz);
+        // console.log(itemx);
+        const armaz = JSON.stringify(itemx);
+        localStorage.setItem(itemsf[0].id, armaz);
 
-      navigate("/Cart");
-    } catch (error) {}
+        navigate("/Cart");
+      } catch (error) {}
+    }
   }
 
   async function buscarSubCategoria(rec2) {
