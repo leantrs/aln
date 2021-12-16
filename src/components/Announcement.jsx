@@ -14,7 +14,8 @@ const Container = styled.div`
 `;
 
 const Announcement = () => {
-  return <Container>OS MELHORES PRODUTOS EM UM UNICO LUGAR!</Container>;
+  //return <Container>OS MELHORES PRODUTOS EM UM UNICO LUGAR!</Container>;
+  return <Container>UM TOQUE DE BELEZA NO SEU DIA A DIA!</Container>;
 };
 
 export default Announcement;

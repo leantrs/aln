@@ -343,7 +343,7 @@ const Cart = () => {
                         <b>Tamanho:</b> {item.tamanho}
                       </ProductName>
                       <ProductId>
-                        <b>ID:</b> {item.id}
+                        <b>Ref:</b> {item.ref}
                       </ProductId>
                       <ProductColor color="green" />
                       <ProductSize>quant: {item.total}</ProductSize>

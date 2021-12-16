@@ -207,7 +207,7 @@ const Product = () => {
 
   async function handleSignIn() {
     if (tamanho === "") {
-      alert("olá! Necessário escolher o tamanho");
+      alert("Olá! Escolha o tamanho antes de continuar. ");
     } else {
       try {
         let soma = itemsf[0].valor * count;
