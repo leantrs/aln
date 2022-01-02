@@ -9,17 +9,46 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
+const Container2 = styled.div`
+  width: 50%;
+  margin: 10px;
+  box-sizing: border-box;
+  justify-content: left;
+  align-items: left;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+`;
+
+const Button = styled.button`
+  width-max: 10%;
+  background-color: #0088a3;
+  color: white;
+  font-weight: 300;
+  border-radius: 20px;
+`;
+
 const Products = () => {
   const [itemsf, setItemsf] = useState("");
+  const [itensPerPage, setItensPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [estado, setEstado] = useState(false);
+
+  const pages = Math.ceil(itemsf.length / itensPerPage);
+
+  const startIndex = currentPage * itensPerPage;
+  const endIndex = startIndex + itensPerPage;
+
+  const currentItens = itemsf.slice(startIndex, endIndex);
+
+  console.log(pages);
 
   useEffect(
     () => {
       const url = window.location.href;
       const res = url.split("?");
-
       buscarSliders(res[1]);
     }, // eslint-disable-next-line
-    []
+    [estado == false]
   );
 
   async function buscarSliders(rec) {
@@ -42,12 +71,35 @@ const Products = () => {
 
       let json = await response.json();
       setItemsf(json);
+      setEstado(true);
+      //  console.log(currentItens);
     } catch (error) {}
   }
 
   return (
     <Container>
-      {itemsf && itemsf.map((item) => <Product item={item} key={item.id} />)}
+      <Container>
+        {currentItens &&
+          currentItens.map((item) => <Product item={item} key={item.id} />)}
+      </Container>
+
+      <Container2>
+        {currentItens &&
+          currentItens.map((item, index) =>
+            index < pages ? (
+              <Button
+                item={item}
+                key={item.id}
+                value={index}
+                onClick={(e) => setCurrentPage(Number(e.target.value))}
+              >
+                {index + 1}
+              </Button>
+            ) : (
+              ""
+            )
+          )}
+      </Container2>
     </Container>
   );
 };
