@@ -40,8 +40,6 @@ const Products = () => {
 
   const currentItens = itemsf.slice(startIndex, endIndex);
 
-  console.log(pages);
-
   useEffect(
     () => {
       const url = window.location.href;
