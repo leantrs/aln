@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
+  console.log("aqui");
+
   async function handleSignIn(rec) {
     // eslint-disable-next-line
-    navigate("/ProductList" + "?" + rec);
+    console.log(rec);
+    navigate(rec);
   }
 
   return (
@@ -18,116 +20,45 @@ function Navbar() {
       <h3 className="logo">@lineL</h3>
 
       <ul className={isMobile ? "nav-links-mobile" : "nav-links"}>
-        <li className="Home">
-          <Link className="Home" to="/ProductList?scarpin">
+        <Link to="/">
+          <li className="Home">Home</li>{" "}
+        </Link>
+        <Link to="">
+          <li className="Home">-</li>{" "}
+        </Link>
+        <Link to="/3">
+          <li className="Home">Scarpin</li>{" "}
+        </Link>
+        <Link to="/4">
+          <li className="Home">Sapatilha</li>
+        </Link>
+        <Link to="/5">
+          <li className="Home">Rasteiras</li>{" "}
+        </Link>
+        <Link to="/6">
+          <li className="Home">Sandalia</li>{" "}
+        </Link>
+        <Link to="/7">
+          <li className="Home">Tenis</li>
+        </Link>
+        <Link to="/8">
+          <li className="Home">Bolsas</li>{" "}
+        </Link>
+        <Link to="/Login">
+          <li className="Home">
             {" "}
-            Sapato Scarpin{" "}
-          </Link>
-        </li>
-        <li className="Home">
-          <Link className="Home" to="/ProductList?Sandalia">
-            {" "}
-            Sandalias{" "}
-          </Link>
-        </li>
-        <li className="Home">
-          <Link className="Home" to="/ProductList?tenis">
-            {" "}
-            Tenis{" "}
-          </Link>
-        </li>
-        <li className="Home">
-          <Link className="Home" to="/ProductList?Rasteiras">
-            {" "}
-            Rasteiras{" "}
-          </Link>
-        </li>
-
-        <li className="Home">
-          <Link className="Sign" to="/login">
-            {" "}
-            Login{" "}
-          </Link>
-        </li>
+            <i className="fa fa-user"> Login</i>
+          </li>{" "}
+        </Link>
       </ul>
-      {/*<ul
-        className={isMobile ? "nav-links-mobile" : "nav-links"}
-        onClick={() => setIsMobile(false)}
-      >
-        <li>
-          <Link className="nav-link" to="/app">
-            {" "}
-            Dashboard{" "}
-          </Link>
-        </li>
-
-        <li>
-          <Link className="nav-link" to="/author">
-            {" "}
-            Authors{" "}
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/about">
-            {" "}
-            About{" "}
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/teste">
-            {" "}
-            Teste{" "}
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/teste2">
-            {" "}
-            Teste2{" "}
-          </Link>
-        </li>
-
-        {/* <li>
-          <Link className="Home" to="/ProductList?scarpin">
-            Sapatos Scarpin
-          </Link>
-        </li>
-        <li>
-          <Link className="Test1" to="/ProductList?tenis">
-            Tenis
-          </Link>
-        </li>
-        <li>
-          <Link className="Test1" to="/ProductList?tenis">
-            Tenis2
-          </Link>
-        </li>
-        <li>
-          <Link className="Test1" to="/ProductList?tenis">
-            Tenis3
-          </Link>
-        </li>
-        <li>
-          <Link className="Test1" to="/ProductList?tenis">
-            Tenis4
-          </Link>
-        </li>
-        <hr></hr>
-        <li>
-          <Link className="Test3" to="http://trs2500.tk/Login">
-            Login
-          </Link>
-          <hr></hr>
-        </li>
-         
-      </ul>*/}
       <button
         className="mobile-menu-icon"
         onClick={() => setIsMobile(!isMobile)}
       >
         {isMobile ? (
-          <i class="fas fa-times">X</i>
+          <i className="fa fa-times"></i>
         ) : (
-          <i class="fas fa-bars">Menu</i>
+          <i className="fa fa-bars"></i>
         )}
       </button>
     </nav>
