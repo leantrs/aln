@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Container = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -50,7 +50,7 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  height: 75%;
+  height: 90%;
 
   flex: 1;
 `;
@@ -91,7 +91,7 @@ const Slider = () => {
 
   const data = Array.from(todos);
 
-  // console.log(data);
+  console.log(data);
 
   const handleClick = (direction) => {
     if (direction === "left") {
