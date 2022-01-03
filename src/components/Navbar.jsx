@@ -11,8 +11,8 @@ function Navbar() {
 
   async function handleSignIn(rec) {
     // eslint-disable-next-line
-    console.log(rec);
     navigate(rec);
+    window.location.reload();
   }
 
   return (
@@ -20,31 +20,51 @@ function Navbar() {
       <h3 className="logo">@lineL</h3>
 
       <ul className={isMobile ? "nav-links-mobile" : "nav-links"}>
-        <Link to="/">
+        <Link className="subli" to="/" onClick={() => handleSignIn("/")}>
           <li className="Home">Home</li>{" "}
         </Link>
-        <Link to="">
+        <Link className="subli" to="">
           <li className="Home">-</li>{" "}
         </Link>
-        <Link to="/3">
+        <Link
+          className="subli"
+          to="/ProductList?Scarpin"
+          onClick={() => handleSignIn("/ProductList?Scarpin")}
+        >
           <li className="Home">Scarpin</li>{" "}
         </Link>
-        <Link to="/4">
+        <Link
+          className="subli"
+          to="/ProductList?Sapatilha"
+          onClick={() => handleSignIn("/ProductList?Sapatilha")}
+        >
           <li className="Home">Sapatilha</li>
         </Link>
-        <Link to="/5">
+        <Link
+          className="subli"
+          to="/ProductList?Rasteiras"
+          onClick={() => handleSignIn("/ProductList?Rasteira")}
+        >
           <li className="Home">Rasteiras</li>{" "}
         </Link>
-        <Link to="/6">
+        <Link
+          className="subli"
+          to="/ProductList?Sandalia"
+          onClick={() => handleSignIn("/ProductList?Sandalia")}
+        >
           <li className="Home">Sandalia</li>{" "}
         </Link>
-        <Link to="/7">
+        <Link
+          className="subli"
+          to="/ProductList?tenis"
+          onClick={() => handleSignIn("/ProductList?tenis")}
+        >
           <li className="Home">Tenis</li>
         </Link>
-        <Link to="/8">
+        <Link className="subli" to="/ProductList?bolsas">
           <li className="Home">Bolsas</li>{" "}
         </Link>
-        <Link to="/Login">
+        <Link className="subli" to="/Login">
           <li className="Home">
             {" "}
             <i className="fa fa-user"> Login</i>

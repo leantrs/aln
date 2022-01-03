@@ -3,7 +3,7 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   height: 30px;
-  background-color: DarkGreen;
+  background-color: #db7093;
   color: white;
   display: flex;
   align-items: center;

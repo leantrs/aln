@@ -8,11 +8,13 @@
   justify-content: space-around;
   align-items: center;
   height: 100px;
-  background-color: #00828c;
+  background-color: #ffe4e1;
   color: white;
 }
 .logo {
+  margin-left: 20px;
   font-size: 30px;
+  color: #db7093;
 }
 .nav-links {
   display: flex;
@@ -23,11 +25,11 @@
 .Home,
 .Sign {
   text-decoration: none;
-  color: white;
-  font-size: 12px;
+  color: #db7093;
+  font-size: 16px;
   padding: 2px 10px;
   margin: 0 10px;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 .Sign {
   border: 1px solid yellow;
@@ -36,10 +38,16 @@
 .mobile-menu-icon {
   display: none;
 }
+
+.subli {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 780px) {
   .logo {
     display: flex;
     position: absolute;
+    color: #db7093;
     top: 15px;
     left: 35px;
   }
@@ -53,7 +61,7 @@
     /*display: block;
     */
     list-style: none;
-    background-color: #005469;
+    background-color: #ffe4e1;
     transition: all 0.5s ease-out;
     width: 100%;
   }
@@ -66,12 +74,14 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    color: #cd5c5c;
 
     transition: all 0.5s ease;
   }
 
   .Sign {
     border: none;
+    color: yellow;
   }
 
   .mobile-menu-icon {
@@ -79,10 +89,13 @@
     position: absolute;
     font-size: 30px;
     color: white;
-    background-color: #00828c;
+    background-color: #ffe4e1;
     border: none;
     outline: none;
     top: 15px;
     right: 25px;
+  }
+  .subli {
+    text-decoration: none;
   }
 }
