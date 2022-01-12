@@ -94,8 +94,11 @@ function Navbar() {
               Login
             </Link>
           </li>
+          <Button />
+          <li>
+            <Link to="" className="nav-items" onClick={closeMobileMenu}></Link>
+          </li>
         </ul>
-        <Button />
       </nav>
     </>
   );
