@@ -91,14 +91,12 @@ function Navbar() {
               className="nav-links-mobile"
               onClick={closeMobileMenu}
             >
-              Login
+              <i className="fa fa-user"> login</i>
             </Link>
           </li>
-          <Button />
-          <li>
-            <Link to="" className="nav-items" onClick={closeMobileMenu}></Link>
-          </li>
         </ul>
+        <Button />
+        <hr></hr>
       </nav>
     </>
   );
