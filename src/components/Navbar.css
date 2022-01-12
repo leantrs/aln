@@ -124,13 +124,13 @@
   .nav-links-mobile {
     display: block;
     text-align: center;
-    padding: 1.5rem;
+    padding: 6px;
     margin: 4rem auto;
-    border-radius: 10px;
+    border-radius: 6px;
     width: 40%;
-    background: #db7093;
+    background: #ffe4e1;
     text-decoration: none;
-    color: #fff;
+    color: #db7093;
     font-size: 2rem;
   }
 
