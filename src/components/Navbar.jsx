@@ -53,7 +53,7 @@ function Navbar() {
               className="nav-links"
               onClick={closeMobileMenu}
             >
-              Scarpin {/*<i className="fa fa-caret-down" />*/}
+              Sapato Scarpin {/*<i className="fa fa-caret-down" />*/}
             </Link>
             {/*dropdown && <Dropdown />*/}
           </li>

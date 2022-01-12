@@ -125,13 +125,13 @@
     display: block;
     text-align: center;
     padding: 1.5rem;
-    margin: 2rem auto;
+    margin: 4rem auto;
     border-radius: 10px;
-    width: 80%;
+    width: 40%;
     background: #db7093;
     text-decoration: none;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .nav-links-mobile:hover {
