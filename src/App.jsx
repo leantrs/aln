@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import { Provider } from "react-redux";
 import store from "./store";
+import "./App.css";
 
 const App = () => {
   return (
