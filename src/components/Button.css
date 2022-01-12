@@ -4,7 +4,7 @@
 
 .btn {
   padding: 8px 20px;
-  border-radius: 4px;
+  border-radius: 10px;
   outline: none;
   border: none;
   font-size: 18px;
@@ -18,7 +18,7 @@
   transition: all 0.3s ease-out;
   background-color: transparent;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 2px solid #db7093;
   transition: all 0.3s ease-out;
 }

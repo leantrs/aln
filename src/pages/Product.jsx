@@ -16,12 +16,12 @@ const Wrapper = styled.div`
   ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
-// const Image = styled.img`
-//   width: 100%;
-//   height: 90vh;
-//   object-fit: cover;
-//   ${mobile({ height: "40vh" })}
-// `;
+const Image = styled.img`
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  ${mobile({ height: "40vh" })}
+`;
 
 const InfoContainer = styled.div`
   flex: 1;

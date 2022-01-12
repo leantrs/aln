@@ -12,7 +12,9 @@ const Container = styled.div`
 const Container2 = styled.div`
   width: 50%;
   margin: 10px;
-  box-sizing: border-box;
+   {
+    /*box-sizing: border-box;*/
+  }
   justify-content: left;
   align-items: left;
   flex-wrap: wrap;
