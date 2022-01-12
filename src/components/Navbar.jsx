@@ -96,7 +96,6 @@ function Navbar() {
           </li>
         </ul>
         <Button />
-        <hr></hr>
       </nav>
     </>
   );
