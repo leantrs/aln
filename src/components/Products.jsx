@@ -46,6 +46,9 @@ const Products = () => {
     () => {
       const url = window.location.href;
       const res = url.split("?");
+
+      console.log("" + res[1]);
+
       buscarSliders(res[1]);
     }, // eslint-disable-next-line
     [estado == false]
@@ -72,7 +75,6 @@ const Products = () => {
       let json = await response.json();
       setItemsf(json);
       setEstado(true);
-      //  console.log(currentItens);
     } catch (error) {}
   }
 

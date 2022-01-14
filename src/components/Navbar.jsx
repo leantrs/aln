@@ -3,13 +3,23 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const closeMobileMenu = (rec) => {
+    teste();
+    window.location.href = rec;
+    setClick(false);
+  };
+
+  const teste = () => {
+    console.log("marcel leandro");
+  };
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -51,7 +61,7 @@ function Navbar() {
             <Link
               to="/ProductList?Scarpin"
               className="nav-links"
-              onClick={closeMobileMenu}
+              onClick={() => closeMobileMenu("/ProductList?Scarpin")}
             >
               Sapato Scarpin {/*<i className="fa fa-caret-down" />*/}
             </Link>
@@ -61,25 +71,25 @@ function Navbar() {
             <Link
               to="/ProductList?Sapatilha"
               className="nav-links"
-              onClick={closeMobileMenu}
+              onClick={() => closeMobileMenu("/ProductList?Sapatilha")}
             >
               Sapatilha
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/ProductList?Rasteiras"
+              to="/ProductList?Tenis"
               className="nav-links"
-              onClick={closeMobileMenu}
+              onClick={() => closeMobileMenu("/ProductList?Tenis")}
             >
-              Rasteiras
+              Tenis
             </Link>
           </li>
           <li className="nav-item">
             <Link
               to="/ProductList?Sandalia"
               className="nav-links"
-              onClick={closeMobileMenu}
+              onClick={() => closeMobileMenu("/ProductList?Sandalia")}
             >
               Sandalia
             </Link>
@@ -91,7 +101,7 @@ function Navbar() {
               className="nav-links-mobile"
               onClick={closeMobileMenu}
             >
-              <i className="fa fa-user"> login</i>
+              Login
             </Link>
           </li>
         </ul>

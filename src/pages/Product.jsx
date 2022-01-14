@@ -307,6 +307,8 @@ const Product = () => {
   async function handleSignIn2(rec) {
     setEstado(true);
     // eslint-disable-next-line
+
+    console.log(rec);
     navigate("/Product" + "?" + rec);
     link();
   }

@@ -99,7 +99,7 @@ const Slider = () => {
 
   const data = Array.from(todos);
 
-  console.log(data);
+  //console.log(data);
 
   const handleClick = (direction) => {
     if (direction === "left") {

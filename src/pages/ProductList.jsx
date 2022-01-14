@@ -61,12 +61,10 @@ const ProductList = () => {
   //const account = useSelector((state) => state.user);
   // let rec = Object.values(account);
 
-  // console.log(account);
-
   useEffect(() => {
     const url = window.location.href;
     const res = url.split("?");
-    // console.log(url);
+
     setTitulo(res[1]);
     // console.log(res[1]);
   }, []);

@@ -75,8 +75,6 @@ const Title = styled.h1`
 const Product = ({ item }) => {
   const navigate = useNavigate();
 
-  // console.log(item);
-
   async function handleSignIn() {
     // eslint-disable-next-line
     navigate("/Product" + "?" + item.id);
