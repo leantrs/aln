@@ -17,6 +17,7 @@ function Navbar() {
         @lineL
         <i class="fab fa-firstdraft" />
       </Link>
+
       <div className="menu-icon" onClick={handleClick}>
         <i className={click ? "fa fa-times" : "fa fa-bars"} />
       </div>
@@ -69,7 +70,7 @@ function Navbar() {
 
         <li>
           <Link to="/login" className="nav-links-mobile">
-            Login
+            <i className="fa fa-user"> Login</i>
           </Link>
         </li>
       </ul>

@@ -23,11 +23,9 @@ const Container2 = styled.div`
 `;
 
 const Button = styled.button`
-  width-max: 10%;
-  background-color: #0088a3;
-  color: white;
-  font-weight: 300;
-  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 const Products = () => {
