@@ -16,13 +16,6 @@ const Wrapper = styled.div`
   ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-  ${mobile({ height: "40vh" })}
-`;
-
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
@@ -78,6 +71,8 @@ const FilterColor = styled.div`
 const FilterSize = styled.select`
   margin-left: 10px;
   padding: 5px;
+  color: black;
+  background: white;
 `;
 
 const FilterSizeOption = styled.option``;
@@ -108,6 +103,7 @@ const Amount = styled.span`
 `;
 
 const Button = styled.button`
+  display: flex;
   margin-top: 15px;
   padding: 15px;
   border: 2px solid teal;
@@ -307,8 +303,6 @@ const Product = () => {
   async function handleSignIn2(rec) {
     setEstado(true);
     // eslint-disable-next-line
-
-    console.log(rec);
     navigate("/Product" + "?" + rec);
     link();
   }

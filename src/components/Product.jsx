@@ -1,5 +1,5 @@
-//import { SearchOutlined } from "@material-ui/icons";
 import styled from "styled-components";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Info = styled.div`
@@ -74,9 +74,8 @@ const Title = styled.h1`
 
 const Product = ({ item }) => {
   const navigate = useNavigate();
-
   async function handleSignIn() {
-    // eslint-disable-next-line
+    // eslint - disable - next - line;
     navigate("/Product" + "?" + item.id);
   }
   return (

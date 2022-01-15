@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
+import { Facebook, Instagram } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 

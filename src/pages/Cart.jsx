@@ -116,7 +116,7 @@ const ProductAmountContainer = styled.div`
 // `;
 
 const ProductPrice = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 200;
   ${mobile({ marginBottom: "20px" })}
 `;
@@ -155,6 +155,7 @@ const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
 
 const Button = styled.button`
+  display: flex;
   width: 100%;
   padding: 5px;
   background-color: black;
@@ -163,6 +164,7 @@ const Button = styled.button`
   border-radius: 10px;
 `;
 const Buttonx = styled.button`
+  display: flex;
   width: 100%;
   padding: 5px;
   background-color: green;

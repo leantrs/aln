@@ -7,14 +7,15 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  z-index: 1;
 `;
 
 const Container2 = styled.div`
   width: 50%;
   margin: 10px;
-   {
-    /*box-sizing: border-box;*/
-  }
+
+  box-sizing: border-box;
+
   justify-content: left;
   align-items: left;
   flex-wrap: wrap;
@@ -47,7 +48,7 @@ const Products = () => {
       const url = window.location.href;
       const res = url.split("?");
 
-      console.log("" + res[1]);
+      // console.log("" + res[1]);
 
       buscarSliders(res[1]);
     }, // eslint-disable-next-line
@@ -58,6 +59,8 @@ const Products = () => {
     if (rec === undefined) {
       rec = "geral";
     }
+
+    //  console.log("" + rec);
 
     try {
       let response = await fetch("https://trs2500.ml/aln/Controller.php", {
