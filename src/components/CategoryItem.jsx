@@ -35,6 +35,7 @@ const Title = styled.h1`
 `;
 
 const Button = styled.button`
+  display: flex;
   border: none;
   padding: 10px;
   background-color: white;
@@ -49,7 +50,16 @@ const CategoryItem = ({ item }) => {
 
   async function handleSignIn() {
     // eslint-disable-next-line
-    navigate("/ProductList" + "?" + item.title);
+
+    if (item.title === "Sandalia") {
+      navigate("/ProductList3" + "?" + item.title);
+    }
+    if (item.title === "Tenis") {
+      navigate("/ProductList1" + "?" + item.title);
+    }
+    if (item.title === "Bolsas") {
+      navigate("/ProductList4" + "?" + item.title);
+    }
   }
   return (
     <Container>

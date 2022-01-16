@@ -32,7 +32,7 @@ const Button = styled.button`
   font-weight: 300;
   border-radius: 20px;
 */
-  display: flex;
+  display: inline-grid;
   padding: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -40,6 +40,7 @@ const Button = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
+  border-radius: 20px;
 `;
 
 const Products = () => {

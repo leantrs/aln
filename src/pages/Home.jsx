@@ -57,7 +57,6 @@ const Home = () => {
 
       <Announcement />
       <Slider />
-
       <Categories />
       <Products />
       <Footer />

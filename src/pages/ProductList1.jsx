@@ -80,8 +80,6 @@ const ProductList = () => {
       <Announcement />
       <Top>
         <Title>{titulo}</Title>
-
-        <TopButton onClick={handleSignIn3}>HOME</TopButton>
       </Top>
 
       <FilterContainer>
