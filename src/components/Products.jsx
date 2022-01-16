@@ -17,15 +17,29 @@ const Container2 = styled.div`
   box-sizing: border-box;
 
   justify-content: left;
+
   align-items: left;
   flex-wrap: wrap;
   padding-top: 1rem;
 `;
 
 const Button = styled.button`
+  /*
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width-max: 20%;
+  background-color: #0088a3;
+  color: white;
+  font-weight: 300;
+  border-radius: 20px;
+*/
+  display: flex;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: ${(props) => props.type === "filled" && "none"};
+  background-color: ${(props) =>
+    props.type === "filled" ? "black" : "transparent"};
+  color: ${(props) => props.type === "filled" && "white"};
 `;
 
 const Products = () => {
@@ -85,24 +99,25 @@ const Products = () => {
         {currentItens &&
           currentItens.map((item) => <Product item={item} key={item.id} />)}
       </Container>
-
-      <Container2>
-        {currentItens &&
-          currentItens.map((item, index) =>
-            index < pages ? (
-              <Button
-                item={item}
-                key={item.id}
-                value={index}
-                onClick={(e) => setCurrentPage(Number(e.target.value))}
-              >
-                {index + 1}
-              </Button>
-            ) : (
-              ""
-            )
-          )}
-      </Container2>
+      <>
+        <Container2>
+          {currentItens &&
+            currentItens.map((item, index) =>
+              index < pages ? (
+                <Button
+                  item={item}
+                  key={item.id}
+                  value={index}
+                  onClick={(e) => setCurrentPage(Number(e.target.value))}
+                >
+                  {index + 1}
+                </Button>
+              ) : (
+                ""
+              )
+            )}
+        </Container2>
+      </>
     </Container>
   );
 };

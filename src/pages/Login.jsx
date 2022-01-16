@@ -8,7 +8,6 @@ import authServices from "../services/authServices";
 import { useDispatch } from "react-redux";
 import signUser from "../actions/accountActions";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 const Container = styled.div`
   width: 100vw;
@@ -67,8 +66,6 @@ const Login = () => {
   }
   return (
     <Container>
-      <Navbar />
-
       <Wrapper>
         <Title>ENTRAR</Title>
         <form>
