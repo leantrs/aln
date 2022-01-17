@@ -164,9 +164,25 @@ const Product = () => {
     const url = window.location.href;
     const res = url.split("?");
 
-    buscarSliders(res[1]);
-    buscarProdutostam(res[1]);
-    buscarProdutosimg(res[1]);
+    if (res[1] !== undefined) {
+      buscarSliders(res[1]);
+      buscarProdutostam(res[1]);
+      buscarProdutosimg(res[1]);
+    } else {
+      alert("Produto nao encontrado em estoque");
+      navigate("/");
+    }
+
+    // console.log("" + err);
+
+    /*
+    switch (res[1]) {
+      case "Sandalia":
+        navigate("/ProductList3?Sandalia");
+      default:
+        return "foo";
+    }
+    */
   }
 
   async function buscarSliders(rec) {
@@ -188,10 +204,15 @@ const Product = () => {
       });
 
       let json = await response.json();
-      //console.log(json);
-      setItemsf(json);
+
+      // console.log(json);
+
+      if (json === "error") {
+      } else {
+        setItemsf(json);
+        buscarSubCategoria(json[0].titulo);
+      }
       //console.log(json[0].titulo);
-      buscarSubCategoria(json[0].titulo);
 
       //  console.log(json);
     } catch (error) {
@@ -244,7 +265,11 @@ const Product = () => {
       });
 
       let json = await response.json();
-      setItemsm(json);
+
+      if (json === "error") {
+      } else {
+        setItemsm(json);
+      }
     } catch (error) {
       if (itemsm !== null) {
         // console.log("224");
@@ -268,7 +293,10 @@ const Product = () => {
 
       let json = await response.json();
 
-      setItemsr(json);
+      if (json === "error") {
+      } else {
+        setItemsr(json);
+      }
     } catch (error) {
       if (itemsf !== null) {
         //console.log("253");
@@ -291,8 +319,11 @@ const Product = () => {
       });
 
       let json = await response.json();
-      setItemsk(json);
-      //console.log(json);
+
+      if (json === "error") {
+      } else {
+        setItemsk(json);
+      }
     } catch (error) {
       if (itemsk !== null) {
         // console.log("224");

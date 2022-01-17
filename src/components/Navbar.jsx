@@ -26,6 +26,23 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
+const Buttonx = styled.button`
+  display: flex;
+  background-color: #db7093;
+  color: white;
+  padding: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+const Input = styled.input`
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width-max: 20%;
+  color: black;
+  font-weight: 300;
+`;
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -35,6 +52,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const [rec, setRec] = useState("Default");
   const [user, setUser] = useState("20");
+  const [refx, setRefx] = useState("");
   const [estado, setEstado] = useState(false);
 
   useEffect(
@@ -63,14 +81,6 @@ function Navbar() {
     setEstado(true);
   }
 
-  async function handleSignIn() {
-    // eslint-disable-next-line
-    navigate("/Cart");
-  }
-  // if (estado === true) {
-  //   comparar();
-  // }
-
   async function comparar() {
     let date1 = rec["exp"];
     let date2 = new Date() - 3 * 60 * 60 * 1000;
@@ -84,7 +94,7 @@ function Navbar() {
 
     if (estado === true) {
       if (parseInt(dataBd) > parseInt(dataAtual)) {
-        console.log("token valido");
+        // console.log("token valido");
         await dispatch(signUser(user));
       } else {
         if (rec === "Default") {
@@ -100,6 +110,29 @@ function Navbar() {
   const closeMobileMenu = (rec) => {
     setClick(false);
   };
+
+  async function handleSignIn() {
+    const url1 = window.location.href;
+    const res1 = url1.split("/");
+    const res2 = res1[3].split("?");
+
+    if (res2[0] === "Product") {
+      // eslint-disable-next-line
+      navigate("/Product" + "?" + refx);
+      window.location.reload();
+    } else {
+      if (res2[1] === undefined) {
+        // eslint-disable-next-line
+        navigate("/Product" + "?" + refx);
+      } else {
+      }
+    }
+  }
+
+  async function handleSignIn2() {
+    // eslint-disable-next-line
+    navigate("/Cart");
+  }
 
   return (
     <>
@@ -164,12 +197,32 @@ function Navbar() {
 
         <Button />
       </nav>
+
       <Right>
+        <MenuItem>
+          <Input
+            type="text"
+            value={refx}
+            onChange={(event) => setRefx(event.target.value)}
+            placeholder="Procurar Ref"
+          />
+        </MenuItem>
+
+        <MenuItem>
+          <Buttonx
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={handleSignIn}
+          >
+            ok
+          </Buttonx>
+        </MenuItem>
         <MenuItem>{rec && rec["email"]}</MenuItem>
 
         <MenuItem>
           <Badge badgeContent={Object.keys(todos).length} color="primary">
-            <ShoppingCartOutlined onClick={handleSignIn} />
+            <ShoppingCartOutlined onClick={handleSignIn2} />
           </Badge>
         </MenuItem>
         <MenuItem></MenuItem>

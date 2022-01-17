@@ -5,8 +5,6 @@ import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-//import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -30,7 +28,7 @@ const Top = styled.div`
   justify-content: space-between;
   padding: 20px;
 `;
-
+/*
 const TopButton = styled.button`
   padding: 10px;
   font-weight: 600;
@@ -40,7 +38,7 @@ const TopButton = styled.button`
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
 `;
-
+*/
 // const FilterText = styled.span`
 //   font-size: 20px;
 //   font-weight: 600;
@@ -57,7 +55,7 @@ const TopButton = styled.button`
 
 const ProductList = () => {
   const [titulo, setTitulo] = useState(null);
-  const navigate = useNavigate();
+
   //const account = useSelector((state) => state.user);
   // let rec = Object.values(account);
 
@@ -68,11 +66,6 @@ const ProductList = () => {
     setTitulo(res[1]);
     // console.log(res[1]);
   }, []);
-
-  async function handleSignIn3() {
-    // eslint-disable-next-line
-    navigate("/");
-  }
 
   return (
     <Container>

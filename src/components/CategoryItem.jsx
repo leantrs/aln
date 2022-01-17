@@ -49,15 +49,16 @@ const CategoryItem = ({ item }) => {
   const navigate = useNavigate();
 
   async function handleSignIn() {
-    // eslint-disable-next-line
-
     if (item.title === "Sandalia") {
+      // eslint-disable-next-line
       navigate("/ProductList3" + "?" + item.title);
     }
     if (item.title === "Tenis") {
+      // eslint-disable-next-line
       navigate("/ProductList1" + "?" + item.title);
     }
     if (item.title === "Bolsas") {
+      // eslint-disable-next-line
       navigate("/ProductList4" + "?" + item.title);
     }
   }
