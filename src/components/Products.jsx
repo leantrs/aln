@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Product from "../components/Product";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   padding: 20px;
@@ -48,13 +49,11 @@ const Products = () => {
   const [itensPerPage, setItensPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const [estado, setEstado] = useState(false);
-
   const pages = Math.ceil(itemsf.length / itensPerPage);
-
   const startIndex = currentPage * itensPerPage;
   const endIndex = startIndex + itensPerPage;
-
   const currentItens = itemsf.slice(startIndex, endIndex);
+  const navigate = useNavigate();
 
   useEffect(
     () => {
@@ -89,7 +88,13 @@ const Products = () => {
       });
 
       let json = await response.json();
-      setItemsf(json);
+
+      if (json !== "error") {
+        setItemsf(json);
+      } else {
+        alert("Produto não localizado no estoque");
+        navigate("/");
+      }
       setEstado(true);
     } catch (error) {}
   }

@@ -168,21 +168,7 @@ const Product = () => {
       buscarSliders(res[1]);
       buscarProdutostam(res[1]);
       buscarProdutosimg(res[1]);
-    } else {
-      alert("Produto nao encontrado em estoque");
-      navigate("/");
     }
-
-    // console.log("" + err);
-
-    /*
-    switch (res[1]) {
-      case "Sandalia":
-        navigate("/ProductList3?Sandalia");
-      default:
-        return "foo";
-    }
-    */
   }
 
   async function buscarSliders(rec) {

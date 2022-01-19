@@ -116,14 +116,14 @@ function Navbar() {
     const res1 = url1.split("/");
     const res2 = res1[3].split("?");
 
-    if (res2[0] === "Product") {
+    if (res2[0] === "ProductList") {
       // eslint-disable-next-line
-      navigate("/Product" + "?" + refx);
+      navigate("/ProductList" + "?" + refx);
       window.location.reload();
     } else {
       if (res2[1] === undefined) {
         // eslint-disable-next-line
-        navigate("/Product" + "?" + refx);
+        navigate("/ProductList" + "?" + refx);
       } else {
       }
     }
@@ -204,7 +204,7 @@ function Navbar() {
             type="text"
             value={refx}
             onChange={(event) => setRefx(event.target.value)}
-            placeholder="Procurar Ref"
+            placeholder="Procurar"
           />
         </MenuItem>
 
