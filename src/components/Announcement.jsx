@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Announcement = () => {
   //return <Container>OS MELHORES PRODUTOS EM UM UNICO LUGAR!</Container>;
-  return <Container>UM TOQUE DE CHARME PARA AS PODEROSAS</Container>;
+  return <Container>SINTA O PODER NOS SEUS PÉS</Container>;
 };
 
 export default Announcement;

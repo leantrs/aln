@@ -83,11 +83,12 @@ const Footer = () => {
         <Desc>Qualidade, ética, comprometimento, respeito e simpatia.</Desc>
         <Desc>
           {" "}
-          © 2021 Aline Leandro. Todos os direitos reservados. ALINE LEANDRO ME,
-          com sede na Av. Pero Vaz de Caminha 661, Sta Rita, Curitiba/PR, CEP
-          81470-096, Fone 41 98479-3763 , inscrita no CNPJ sob o n°
-          71.673.990/0001-77, sociedade executa atividades de Drop Shipping em
-          geral e se dedica à pesquisa e desenvolvimento de produtos.
+          © 2021 Aline Leandro Modas. Todos os direitos reservados. ALINE
+          LEANDRO ME, com sede na Rua João Francisco Barbosa 170, Vila Nova,
+          Porto Alegre/RS, CEP 91740-530, Fone 41 98538-9509 , inscrita no CNPJ
+          sob o n° 71.673.990/0001-77, sociedade executa atividades de Drop
+          Shipping em geral e se dedica à pesquisa e desenvolvimento de
+          produtos.
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
