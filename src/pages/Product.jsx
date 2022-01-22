@@ -32,12 +32,12 @@ const Desc = styled.p`
 
 const Price = styled.span`
   font-weight: 100;
-  font-size: 30px;
+  font-size: 20px;
 `;
 
 const Pricex = styled.span`
   font-weight: 60;
-  font-size: 15px;
+  font-size: 25px;
   color: red;
 `;
 
