@@ -202,7 +202,6 @@ const Product = () => {
       buscarSliders(res[1]);
       buscarProdutostam(res[1]);
       buscarProdutosimg(res[1]);
-      buscarProdutosQuant(res[1]);
     }
   }
 
@@ -449,6 +448,7 @@ const Product = () => {
                 <FilterSize
                   onChange={(event) => setTamanho(event.target.value)}
                 >
+                  <FilterSizeOption> </FilterSizeOption>
                   {itemsk &&
                     itemsk.map((item) => (
                       <FilterSizeOption>{item.tamanho}</FilterSizeOption>
