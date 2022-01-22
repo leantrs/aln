@@ -30,6 +30,7 @@ const Top = styled.div`
 `;
 
 const TopButton = styled.button`
+  display: flex;
   padding: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -157,6 +158,8 @@ const SummaryItemPrice = styled.span``;
 const Button = styled.button`
   display: flex;
   width: 100%;
+  max-width: 30%;
+
   padding: 5px;
   background-color: black;
   color: white;
@@ -384,7 +387,7 @@ const Cart = () => {
             <SummaryItemText>Total</SummaryItemText>
             <SummaryItemPrice>R$ {soma}</SummaryItemPrice>
           </SummaryItem>
-          <Button onClick={handleSignIn1}>COMPRAR</Button>
+          <Button onClick={handleSignIn1}> COMPRAR</Button>
         </Summary>
       </Wrapper>
 

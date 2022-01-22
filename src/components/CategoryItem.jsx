@@ -30,7 +30,7 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-  color: white;
+  color: green;
   margin-bottom: 20px;
 `;
 

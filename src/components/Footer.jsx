@@ -76,6 +76,10 @@ const Payment = styled.img`
 `;
 */
 const Footer = () => {
+  async function handleSignIn() {
+    // eslint-disable-next-line
+    window.location.href = "https://www.instagram.com/alineleandromodas/";
+  }
   return (
     <Container>
       <Center>
@@ -92,10 +96,10 @@ const Footer = () => {
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
-            <Facebook />
+            <Facebook></Facebook>
           </SocialIcon>
           <SocialIcon color="E4405F">
-            <Instagram />
+            <Instagram onClick={handleSignIn}></Instagram>
           </SocialIcon>
           {/*  <SocialIcon color="55ACEE">
             <Twitter />

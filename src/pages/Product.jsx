@@ -165,16 +165,10 @@ const Buttonw = styled.button`
 */
   display: inline-grid;
   padding: 5px;
-  margin-left: 5px;
-  margin-bottom: 5px;
   background-color: #db7093;
   color: white;
   font-weight: 600;
   cursor: pointer;
-  border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
   background-color: #db7093;
   color: white;
   border-radius: 0px;
@@ -421,7 +415,7 @@ const Product = () => {
           <Desc>- {itemsf && itemsf.map((item) => item.sobre_este_item)}</Desc>
           <Pricex>Por Apenas: </Pricex>
           <Price>R$ {itemsf && itemsf.map((item) => item.valor * count)}</Price>
-          <Desc>Confira abaixo o estoque disponível no momento:</Desc>
+          {/*           <Desc>Confira abaixo o estoque disponível no momento:</Desc>
           <AmountContainerx>
             {itemsa &&
               itemsa.map((item) => (
@@ -433,6 +427,7 @@ const Product = () => {
                 <Buttonw>{("00" + Number(item.quant)).slice(-2)}</Buttonw>
               ))}
           </AmountContainerx>
+*/}
 
           <FilterContainer>
             <Filter>
