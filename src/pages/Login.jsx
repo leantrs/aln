@@ -34,6 +34,16 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
+  margin: 10px;
+`;
+
+const Buttonz = styled.button`
+  display: flex;
+  background-color: #db7093;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const Login = () => {
@@ -97,7 +107,7 @@ const Login = () => {
           <Link to={"/Register"} style={{ textDecoration: "none" }}>
             Nao tem uma conta? Registre-se
           </Link>
-          <Buttonx
+          <Buttonz
             fullWidth
             variant="contained"
             color="primary"
@@ -105,7 +115,7 @@ const Login = () => {
             // onclick={navigate("/")}
           >
             Entrar
-          </Buttonx>
+          </Buttonz>
         </form>
       </Wrapper>
     </Container>

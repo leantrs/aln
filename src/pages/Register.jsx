@@ -48,6 +48,7 @@ const Agreement = styled.span`
 `;
 
 const Button = styled.button`
+  display: flex;
   width: 40%;
   border: none;
   padding: 15px 20px;
