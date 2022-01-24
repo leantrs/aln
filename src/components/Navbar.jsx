@@ -43,6 +43,15 @@ const Input = styled.input`
   font-weight: 300;
 `;
 
+const Image = styled.img`
+   {
+    height: 50px;
+    width: 250px;
+
+    position: absolute;
+  }
+`;
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -138,7 +147,7 @@ function Navbar() {
     <>
       <nav className="navbar">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          @lineL
+          <Image src="https://trs2500.ml/img/logo.png" />
           <i class="fab fa-firstdraft" />
         </Link>
 
@@ -194,7 +203,6 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-
         <Button />
       </nav>
 
