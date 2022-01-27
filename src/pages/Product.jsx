@@ -340,8 +340,6 @@ const Product = () => {
 
       let json = await response.json();
 
-      console.log(json);
-
       if (json === "error") {
       } else {
         setItemsk(json);

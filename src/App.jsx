@@ -9,7 +9,6 @@ import ProductList4 from "./pages/ProductList4";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
-import Sitemap from "./pages/sitemap";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./App.css";
@@ -21,7 +20,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Product" element={<Product />} />
-          <Route path="/Sitemap" element={<Sitemap />}></Route>
           <Route path="/ProductList" element={<ProductList />} />
           <Route path="/ProductList1" element={<ProductList1 />} />
           <Route path="/ProductList2" element={<ProductList2 />} />

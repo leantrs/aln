@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://localhost:3000/Sitemap
+Sitemap: https://www.alineleandro.com.br/sitemap.xml
