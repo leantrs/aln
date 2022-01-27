@@ -54,7 +54,6 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-
       <Announcement />
       <Slider />
       <Categories />
