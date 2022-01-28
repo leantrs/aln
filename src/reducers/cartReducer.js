@@ -1,5 +1,3 @@
-//import CART_SUCCESS from "../actions/cartAction";
-
 const INITIAL_STATE = {
   listaCarrinho: { id: 1 },
 };
@@ -18,5 +16,3 @@ const cartReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default cartReducer;
-
-// REDUCER VEM POR SEGUNDO

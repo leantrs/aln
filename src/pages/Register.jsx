@@ -20,12 +20,14 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 80%;
-  padding: 20px;
+  height: 100%;
+  padding: 10px;
   background-color: white;
   ${mobile({ width: "75%" })}
 `;
 
 const Title = styled.h1`
+  margin: 20px;
   font-size: 24px;
   font-weight: 300;
 `;
@@ -37,7 +39,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   flex: 0;
-  min-width: 40%;
+  min-width: 80%;
   margin: 20px 5px 10px 0px;
   padding: 10px;
 `;
@@ -52,10 +54,9 @@ const Button = styled.button`
   width: 40%;
   border: none;
   padding: 15px 20px;
-  background-color: teal;
+  background-color: #db7093;
   color: white;
   cursor: pointer;
-  margin-top: 10px;
 `;
 
 const Register = () => {
@@ -73,7 +74,6 @@ const Register = () => {
   const [celular, setCelular] = useState("");
   const [nascimento, setNascimento] = useState("");
   const navigate = useNavigate();
-  const [msg, setMsg] = useState(null);
 
   async function handleSignIn() {
     try {
@@ -102,13 +102,10 @@ const Register = () => {
       });
 
       let json = await response.json();
-      setMsg(json);
-      if (json === true) {
-        //  localStorage.setItem("auth", json);
-        navigate("/");
-      }
 
-      //console.log(json);
+      if (json === true) {
+        navigate("/Login");
+      }
     } catch (error) {}
   }
 
@@ -159,13 +156,6 @@ const Register = () => {
             value={documento}
             onChange={(event) => setDocumento(event.target.value)}
           />
-          {/*
-          <Input
-            placeholder="Cpf"
-            value={documento}
-            onChange={(event) => setDocumento(event.target.value)}
-          />
-*/}
           <Input
             placeholder="Email"
             value={email}
@@ -193,8 +183,9 @@ const Register = () => {
           />
         </Form>
 
-        <Agreement>{msg}</Agreement>
+        <Agreement>-</Agreement>
         <Button onClick={handleSignIn}>CRIAR</Button>
+        <br></br>
       </Wrapper>
     </Container>
   );

@@ -18,5 +18,3 @@ const listaReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default listaReducer;
-
-// REDUCER VEM POR SEGUNDO

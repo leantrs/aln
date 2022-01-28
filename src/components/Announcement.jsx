@@ -18,7 +18,6 @@ const Desc = styled.p`
 `;
 
 const Announcement = () => {
-  //return <Container>OS MELHORES PRODUTOS EM UM UNICO LUGAR!</Container>;
   return (
     <Container>
       <Desc>SINTA O PODER NOS SEUS PÉS</Desc>

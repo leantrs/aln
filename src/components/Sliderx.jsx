@@ -68,7 +68,6 @@ const Sliderx = ({ item }) => {
 
   useEffect(
     () => {
-      // console.log(item);
       setItemsf(item);
     }, // eslint-disable-next-line
     []
@@ -81,13 +80,7 @@ const Sliderx = ({ item }) => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
-  /*
-  async function handleSignIn(rec) {
-    // eslint-disable-next-line
-    navigate("/Product" + "?" + rec);
-    //  console.log(rec);
-  }
-*/
+
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>

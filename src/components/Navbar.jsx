@@ -57,7 +57,6 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   const navigate = useNavigate();
   const todos = useSelector((state) => state.cart.listaCarrinho);
-  //const account = useSelector((state) => state.account.user);
   const dispatch = useDispatch();
   const [rec, setRec] = useState("Default");
   const [user, setUser] = useState("20");
@@ -79,11 +78,8 @@ function Navbar() {
     setUser(userx);
 
     if (userx === "20" || userx === "null") {
-      // console.log("invalido");
     } else {
       setRec(JSON.parse(atob(userx.split(".")[1])));
-      // console.log("valido");
-      //  console.log(userx);
       dispatch(signUser(userx));
     }
 
@@ -93,7 +89,6 @@ function Navbar() {
   async function comparar() {
     let date1 = rec["exp"];
     let date2 = new Date() - 3 * 60 * 60 * 1000;
-    //let date2 = new Date();
 
     let dataUm = new Date(date1).getTime();
     let dataDois = new Date(date2).getTime();
@@ -103,15 +98,11 @@ function Navbar() {
 
     if (estado === true) {
       if (parseInt(dataBd) > parseInt(dataAtual)) {
-        // console.log("token valido");
         await dispatch(signUser(user));
       } else {
         if (rec === "Default") {
           localStorage.setItem("pass", "20");
         }
-        //console.log(rec);
-
-        //await localStorage.removeItem("pass");
       }
     }
   }

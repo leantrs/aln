@@ -7,13 +7,6 @@ const Container = styled.div`
   ${mobile({ flexDirection: "column" })}
 `;
 
-/*const Left = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-`;
-*/
 const Logo = styled.h1``;
 
 const Desc = styled.p`
@@ -41,40 +34,7 @@ const Center = styled.div`
   padding: 20px;
   ${mobile({ display: "none" })}
 `;
-/*
-const Title = styled.h3`
-  margin-bottom: 30px;
-`;
 
-const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const ListItem = styled.li`
-  width: 50%;
-  margin-bottom: 10px;
-`;
-
-const Right = styled.div`
-  flex: 1;
-  padding: 20px;
-  ${mobile({ backgroundColor: "#fff8f8" })}
-`;
-
-const ContactItem = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-`;
-
-const Payment = styled.img`
-  width: 50%;
-`;
-*/
 const Footer = () => {
   async function handleSignIn() {
     // eslint-disable-next-line
@@ -115,13 +75,6 @@ const Footer = () => {
           <SocialIcon color="E4405F">
             <Instagram onClick={handleSignIn}></Instagram>
           </SocialIcon>
-          {/*  <SocialIcon color="55ACEE">
-            <Twitter />
-          </SocialIcon>
-          <SocialIcon color="E60023">
-            <Pinterest />
-          </SocialIcon>
-          */}
         </SocialContainer>
       </Center>
     </Container>

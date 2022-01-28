@@ -25,14 +25,6 @@ const Container2 = styled.div`
 `;
 
 const Button = styled.button`
-  /*
-  display: flex;
-  width-max: 20%;
-  background-color: #0088a3;
-  color: white;
-  font-weight: 300;
-  border-radius: 20px;
-*/
   display: inline-grid;
   padding: 10px;
   font-weight: 600;
@@ -60,8 +52,6 @@ const Products = () => {
       const url = window.location.href;
       const res = url.split("?");
 
-      // console.log("" + res[1]);
-
       buscarSliders(res[1]);
     }, // eslint-disable-next-line
     [estado == false]
@@ -71,9 +61,6 @@ const Products = () => {
     if (rec === undefined) {
       rec = "geral";
     }
-
-    //  console.log("" + rec);
-
     try {
       let response = await fetch("https://trs2500.ml/aln/Controller.php", {
         method: "POST",

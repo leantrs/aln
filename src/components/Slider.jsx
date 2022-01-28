@@ -83,22 +83,12 @@ const Desc = styled.p`
   font-weight: 500;
   letter-spacing: 3px;
 `;
-/*
-const Button = styled.button`
-  padding: 10px;
-  font-size: 20px;
-  background-color: transparent;
-  cursor: pointer;
-`;
-*/
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const navigate = useNavigate();
   const todos = useSelector((state) => state.lista.listax);
 
   const data = Array.from(todos);
-
-  //console.log(data);
 
   const handleClick = (direction) => {
     if (direction === "left") {
@@ -111,7 +101,6 @@ const Slider = () => {
   async function handleSignIn(rec) {
     // eslint-disable-next-line
     navigate("/Product" + "?" + rec);
-    //  console.log(rec);
   }
 
   return (
@@ -133,15 +122,6 @@ const Slider = () => {
               <InfoContainer>
                 <Title>{item.title}</Title>
                 <Desc>{item.descr}</Desc>
-                {/*
-                <Button
-                  value={item.idb}
-                  onClick={(event) => handleSignIn(item.id)}
-                  // onClick={(event) => handleSignIn(event.target.value)}
-                >
-                  DETALHES
-                </Button>
-*/}
               </InfoContainer>
             </Slide>
           ))}

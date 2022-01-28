@@ -91,19 +91,6 @@ const AmountContainer = styled.div`
   font-weight: 700;
 `;
 
-const AmountContainerx = styled.table`
-  width: 100%;
-  margin: 10px;
-
-  box-sizing: border-box;
-
-  justify-content: left;
-
-  align-items: left;
-  flex-wrap: wrap;
-  padding-top: 1rem;
-`;
-
 const Amount = styled.span`
   width: 30px;
   height: 30px;
@@ -135,51 +122,11 @@ const Top = styled.div`
   padding: 20px;
 `;
 
-const TopButton = styled.button`
-  padding: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
-`;
-
-// const TopTexts = styled.div`
-//   ${mobile({ display: "none" })}
-// `;
-// const TopText = styled.span`
-//   text-decoration: underline;
-//   cursor: pointer;
-//   margin: 0px 10px;
-// `;
-
-const Buttonw = styled.button`
-  /*
-  display: flex;
-  width-max: 20%;
-  background-color: #0088a3;
-  color: white;
-  font-weight: 300;
-  border-radius: 20px;
-*/
-  display: inline-grid;
-  padding: 5px;
-  background-color: #db7093;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  background-color: #db7093;
-  color: white;
-  border-radius: 0px;
-`;
-
 const Product = () => {
   const [itemsf, setItemsf] = useState("");
   const [itemsm, setItemsm] = useState("");
   const [itemsk, setItemsk] = useState("");
   const [itemsr, setItemsr] = useState("");
-  const [itemsa, setItemsa] = useState("");
   const [tamanho, setTamanho] = useState("");
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
@@ -188,7 +135,7 @@ const Product = () => {
   useEffect(
     () => {
       setEstado(false);
-      //      console.log(estado + "1");
+
       link();
     }, // eslint-disable-next-line
     [estado]
@@ -225,19 +172,13 @@ const Product = () => {
 
       let json = await response.json();
 
-      // console.log(json);
-
       if (json === "error") {
       } else {
         setItemsf(json);
         buscarSubCategoria(json[0].titulo);
       }
-      //console.log(json[0].titulo);
-
-      //  console.log(json);
     } catch (error) {
       if (itemsf !== null) {
-        //  console.log("223");
       }
     }
   }
@@ -261,7 +202,6 @@ const Product = () => {
           ref: itemsf[0].ref,
         };
 
-        // console.log(itemx);
         const armaz = JSON.stringify(itemx);
         localStorage.setItem(itemsf[0].id, armaz);
 
@@ -292,7 +232,6 @@ const Product = () => {
       }
     } catch (error) {
       if (itemsm !== null) {
-        // console.log("224");
       }
     }
   }
@@ -319,7 +258,6 @@ const Product = () => {
       }
     } catch (error) {
       if (itemsf !== null) {
-        //console.log("253");
       }
     }
   }
@@ -346,34 +284,6 @@ const Product = () => {
       }
     } catch (error) {
       if (itemsk !== null) {
-        // console.log("224");
-      }
-    }
-  }
-
-  async function buscarProdutosQuant(rec3) {
-    try {
-      let response = await fetch("https://trs2500.ml/aln/Controller.php", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          pass: "produtosQuant",
-          fornc: rec3,
-        }),
-      });
-
-      let json = await response.json();
-
-      if (json === "error") {
-      } else {
-        setItemsa(json);
-      }
-    } catch (error) {
-      if (itemsa !== null) {
-        //console.log("253");
       }
     }
   }
@@ -383,11 +293,6 @@ const Product = () => {
     // eslint-disable-next-line
     navigate("/Product" + "?" + rec);
     link();
-  }
-  async function handleSignIn3() {
-    setEstado(true);
-    // eslint-disable-next-line
-    navigate("/");
   }
 
   return (
@@ -414,19 +319,6 @@ const Product = () => {
           <Desc>- {itemsf && itemsf.map((item) => item.sobre_este_item)}</Desc>
           <Pricex>Por Apenas: </Pricex>
           <Price>R$ {itemsf && itemsf.map((item) => item.valor * count)}</Price>
-          {/*           <Desc>Confira abaixo o estoque disponível no momento:</Desc>
-          <AmountContainerx>
-            {itemsa &&
-              itemsa.map((item) => (
-                <Buttonw>{("00" + Number(item.tam)).slice(-2)}</Buttonw>
-              ))}
-            <br></br>
-            {itemsa &&
-              itemsa.map((item) => (
-                <Buttonw>{("00" + Number(item.quant)).slice(-2)}</Buttonw>
-              ))}
-          </AmountContainerx>
-*/}
 
           <FilterContainer>
             <Filter>

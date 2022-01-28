@@ -18,5 +18,3 @@ const accountReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default accountReducer;
-
-// REDUCER VEM POR SEGUNDO

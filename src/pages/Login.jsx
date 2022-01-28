@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import Buttonx from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import { useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
 import { useDispatch } from "react-redux";
 import signUser from "../actions/accountActions";
-import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -25,25 +22,46 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 65%;
-  padding: 20px;
-  background-color: white;
+  width-min: 85%;
+
+  padding: 30px;
+  background-color: #ffe4e1;
   ${mobile({ width: "75%" })}
 `;
 
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
-  margin: 10px;
 `;
 
-const Buttonz = styled.button`
+const Form = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  min-width: 40%;
+  margin: 10px 0;
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  display: flex;
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
   background-color: #db7093;
   color: white;
-  padding: 10px;
-  margin-top: 10px;
+  cursor: pointer;
   margin-bottom: 10px;
+`;
+
+const Link = styled.a`
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
 `;
 
 const Login = () => {
@@ -69,54 +87,38 @@ const Login = () => {
         localStorage.setItem("pass", rec);
 
         await dispatch(signUser(objUsuario)); //DISPARA O EVENTO PARA REDUX
+
         navigate("/");
       }
       //FIM BLOCO IF
     } catch (error) {}
   }
+  async function handleSignIn2() {
+    // eslint-disable-next-line
+    navigate("/Register");
+  }
   return (
     <Container>
       <Wrapper>
         <Title>ENTRAR</Title>
-        <form>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            id="email"
-            label="email"
-            name="email"
-            autoComplete="email"
-            autoFocus
+        <Form>
+          <Input
+            placeholder="email"
             value={user}
             onChange={(event) => setUser(event.target.value)}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="senha"
+          <Input
             type="password"
-            id="password"
-            autoComplete="current-password"
+            id="pass"
+            name="password"
+            placeholder="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Link to={"/Register"} style={{ textDecoration: "none" }}>
-            Nao tem uma conta? Registre-se
-          </Link>
-          <Buttonz
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={handleSignIn}
-            // onclick={navigate("/")}
-          >
-            Entrar
-          </Buttonz>
-        </form>
+          <Button onClick={handleSignIn}>LOGIN</Button>
+          {/* <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link> */}
+          <Link onClick={handleSignIn2}>NAO TEM UMA CONTA? Registre-se</Link>
+        </Form>
       </Wrapper>
     </Container>
   );

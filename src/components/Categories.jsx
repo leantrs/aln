@@ -12,14 +12,12 @@ const Container = styled.div`
 `;
 
 const Categories = () => {
-  //----------------------------------------------------------
-
   const [itemsb, setItemsb] = useState(null);
 
   useEffect(() => {
     buscarSliders();
   }, []);
-  //----------------------------------------------------------
+
   async function buscarSliders() {
     try {
       let response = await fetch("https://trs2500.ml/aln/Controller.php", {
@@ -35,13 +33,9 @@ const Categories = () => {
 
       let json = await response.json();
       setItemsb(json);
-      // console.log(json);
-    } catch (error) {
-      //  console.log("223");
-    }
+    } catch (error) {}
   }
 
-  //----------------------------------------------------------
   return (
     <Container>
       {itemsb &&

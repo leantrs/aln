@@ -67,12 +67,7 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        {/* <Link
-          to={"/ProductList" + "?" + item.title}
-          style={{ textDecoration: "none" }}
-        > */}
         <Button onClick={handleSignIn}>VER CATALAGO</Button>
-        {/* </Link> */}
       </Info>
     </Container>
   );

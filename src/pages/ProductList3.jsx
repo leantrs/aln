@@ -28,43 +28,15 @@ const Top = styled.div`
   justify-content: space-between;
   padding: 20px;
 `;
-/*
-const TopButton = styled.button`
-  padding: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
-`;
-*/
-// const FilterText = styled.span`
-//   font-size: 20px;
-//   font-weight: 600;
-//   margin-right: 20px;
-//   ${mobile({ marginRight: "0px" })}
-// `;
-
-// const Select = styled.select`
-//   padding: 10px;
-//   margin-right: 20px;
-//   ${mobile({ margin: "10px 0px" })}
-// `;
-// const Option = styled.option``;
 
 const ProductList = () => {
   const [titulo, setTitulo] = useState(null);
-
-  //const account = useSelector((state) => state.user);
-  // let rec = Object.values(account);
 
   useEffect(() => {
     const url = window.location.href;
     const res = url.split("?");
 
     setTitulo(res[1]);
-    // console.log(res[1]);
   }, []);
 
   return (
