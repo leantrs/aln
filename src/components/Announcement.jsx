@@ -13,9 +13,17 @@ const Container = styled.div`
   ${mobile({ padding: "0px", flexDirection: "column" })}
 `;
 
+const Desc = styled.p`
+  margin: 20px 0px;
+`;
+
 const Announcement = () => {
   //return <Container>OS MELHORES PRODUTOS EM UM UNICO LUGAR!</Container>;
-  return <Container>SINTA O PODER NOS SEUS PÉS</Container>;
+  return (
+    <Container>
+      <Desc>SINTA O PODER NOS SEUS PÉS</Desc>
+    </Container>
+  );
 };
 
 export default Announcement;
