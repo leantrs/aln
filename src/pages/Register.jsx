@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const Container = styled.div`
   width: 100%;
@@ -24,7 +23,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 80%;
-  height: 100%;
+  height: 90%;
   padding: 10px;
   background-color: white;
   ${mobile({ width: "75%" })}
