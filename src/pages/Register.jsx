@@ -127,6 +127,27 @@ const Register = () => {
             onChange={(event) => setNome(event.target.value)}
           />
           <Input
+            placeholder="Nascimento"
+            value={nascimento}
+            onChange={(event) => setNascimento(event.target.value)}
+          />
+          <Input
+            placeholder="Cpf"
+            value={documento}
+            onChange={(event) => setDocumento(event.target.value)}
+          />
+          <Input
+            placeholder="Email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <Input
+            placeholder="Celular"
+            value={celular}
+            onChange={(event) => setCelular(event.target.value)}
+          />
+
+          <Input
             placeholder="Endereco"
             value={endereco}
             onChange={(event) => setEndereco(event.target.value)}
@@ -158,26 +179,6 @@ const Register = () => {
             onChange={(event) => setCep(event.target.value)}
           />
 
-          <Input
-            placeholder="Cpf"
-            value={documento}
-            onChange={(event) => setDocumento(event.target.value)}
-          />
-          <Input
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <Input
-            placeholder="Celular"
-            value={celular}
-            onChange={(event) => setCelular(event.target.value)}
-          />
-          <Input
-            placeholder="Nascimento"
-            value={nascimento}
-            onChange={(event) => setNascimento(event.target.value)}
-          />
           <Input
             placeholder="Senha"
             value={senha}
