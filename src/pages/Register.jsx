@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   width: 100%;
@@ -59,6 +61,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+toast.configure();
 const Register = () => {
   const [nome, setNome] = useState("");
   const [endereco, setEndereco] = useState("");
@@ -104,6 +107,8 @@ const Register = () => {
       let json = await response.json();
 
       if (json === true) {
+        toast.success("Cadastro realizado c/ sucesso");
+
         navigate("/Login");
       }
     } catch (error) {}
@@ -184,7 +189,12 @@ const Register = () => {
         </Form>
 
         <Agreement>-</Agreement>
-        <Button onClick={handleSignIn}>CRIAR</Button>
+        <Button
+          onClick={handleSignIn}
+          // onClick={notify}
+        >
+          CRIAR
+        </Button>
         <br></br>
       </Wrapper>
     </Container>

@@ -198,6 +198,11 @@ function Navbar() {
       </nav>
 
       <Right>
+        <MenuItem>{rec && rec["email"]}</MenuItem>
+        <MenuItem>
+          <b>Frete Grátis</b>
+        </MenuItem>
+        {/* 
         <MenuItem>
           <Input
             type="text"
@@ -217,7 +222,7 @@ function Navbar() {
             ok
           </Buttonx>
         </MenuItem>
-        <MenuItem>{rec && rec["email"]}</MenuItem>
+        */}
 
         <MenuItem>
           <Badge badgeContent={Object.keys(todos).length} color="primary">

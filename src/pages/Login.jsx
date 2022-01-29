@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
 import { useDispatch } from "react-redux";
 import signUser from "../actions/accountActions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   width: 100vw;
@@ -70,7 +72,7 @@ const Link = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `;
-
+toast.configure();
 const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -85,7 +87,7 @@ const Login = () => {
       //INICIO IF
       if (rec === false) {
         // SE NAO ENCONTRAR DESTROI A INFORMAÇÃO NO LOCALSTORAGE
-        setEstado(2);
+        toast.error("Email ou Senha nao conferem");
         await localStorage.removeItem("pass");
       } else {
         // SE EXISTIR CRIA UM OBJETO DE USUARIO
@@ -111,7 +113,6 @@ const Login = () => {
       <Wrapper>
         <Title>ENTRAR</Title>
         <Form>
-          {estado && estado === 2 ? <Alert>Email/Senha? incorretos</Alert> : ""}
           <Input
             placeholder="email"
             value={user}
