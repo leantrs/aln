@@ -110,6 +110,8 @@ const Register = () => {
         toast.success("Cadastro realizado c/ sucesso");
 
         navigate("/Login");
+      } else {
+        toast.error(json);
       }
     } catch (error) {}
   }
