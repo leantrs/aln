@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
   width: 100%;
@@ -117,90 +119,93 @@ const Register = () => {
   }
 
   return (
-    <Container>
-      <Wrapper>
-        <Title>CRIE A SUA CONTA AQUI</Title>
-        <Form>
-          <Input
-            placeholder="Nome"
-            value={nome}
-            onChange={(event) => setNome(event.target.value)}
-          />
-          <Input
-            placeholder="Nascimento"
-            value={nascimento}
-            onChange={(event) => setNascimento(event.target.value)}
-          />
-          <Input
-            placeholder="Cpf"
-            value={documento}
-            onChange={(event) => setDocumento(event.target.value)}
-          />
-          <Input
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <Input
-            placeholder="Celular"
-            value={celular}
-            onChange={(event) => setCelular(event.target.value)}
-          />
+    <>
+      <Navbar />
+      <Container>
+        <Wrapper>
+          <Title>CRIE A SUA CONTA AQUI</Title>
+          <Form>
+            <Input
+              placeholder="Nome"
+              value={nome}
+              onChange={(event) => setNome(event.target.value)}
+            />
+            <Input
+              placeholder="Nascimento"
+              value={nascimento}
+              onChange={(event) => setNascimento(event.target.value)}
+            />
+            <Input
+              placeholder="Cpf"
+              value={documento}
+              onChange={(event) => setDocumento(event.target.value)}
+            />
+            <Input
+              placeholder="Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <Input
+              placeholder="Celular"
+              value={celular}
+              onChange={(event) => setCelular(event.target.value)}
+            />
 
-          <Input
-            placeholder="Endereco"
-            value={endereco}
-            onChange={(event) => setEndereco(event.target.value)}
-          />
-          <Input
-            placeholder="Numero"
-            value={numero}
-            onChange={(event) => setNumero(event.target.value)}
-          />
-          <Input
-            placeholder="Bairro"
-            value={bairro}
-            onChange={(event) => setBairro(event.target.value)}
-          />
+            <Input
+              placeholder="Endereco"
+              value={endereco}
+              onChange={(event) => setEndereco(event.target.value)}
+            />
+            <Input
+              placeholder="Numero"
+              value={numero}
+              onChange={(event) => setNumero(event.target.value)}
+            />
+            <Input
+              placeholder="Bairro"
+              value={bairro}
+              onChange={(event) => setBairro(event.target.value)}
+            />
 
-          <Input
-            placeholder="Cidade"
-            value={cidade}
-            onChange={(event) => setCidade(event.target.value)}
-          />
-          <Input
-            placeholder="Estado"
-            value={estado}
-            onChange={(event) => setEstado(event.target.value)}
-          />
-          <Input
-            placeholder="CEP"
-            value={cep}
-            onChange={(event) => setCep(event.target.value)}
-          />
+            <Input
+              placeholder="Cidade"
+              value={cidade}
+              onChange={(event) => setCidade(event.target.value)}
+            />
+            <Input
+              placeholder="Estado"
+              value={estado}
+              onChange={(event) => setEstado(event.target.value)}
+            />
+            <Input
+              placeholder="CEP"
+              value={cep}
+              onChange={(event) => setCep(event.target.value)}
+            />
 
-          <Input
-            placeholder="Senha"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-          />
-          <Input
-            placeholder="Confirmacao Senha"
-            value={confirmacaoSenha}
-            onChange={(event) => setConfirmacaoSenha(event.target.value)}
-          />
-        </Form>
+            <Input
+              placeholder="Senha"
+              value={senha}
+              onChange={(event) => setSenha(event.target.value)}
+            />
+            <Input
+              placeholder="Confirmacao Senha"
+              value={confirmacaoSenha}
+              onChange={(event) => setConfirmacaoSenha(event.target.value)}
+            />
+          </Form>
 
-        <Agreement>-</Agreement>
-        <Button
-          onClick={handleSignIn}
-          // onClick={notify}
-        >
-          CRIAR
-        </Button>
-        <br></br>
-      </Wrapper>
-    </Container>
+          <Agreement>-</Agreement>
+          <Button
+            onClick={handleSignIn}
+            // onClick={notify}
+          >
+            CRIAR
+          </Button>
+          <br></br>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

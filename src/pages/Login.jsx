@@ -5,22 +5,26 @@ import { useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
 import { useDispatch } from "react-redux";
 import signUser from "../actions/accountActions";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+        center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -109,30 +113,34 @@ const Login = () => {
     navigate("/Register");
   }
   return (
-    <Container>
-      <Wrapper>
-        <Title>ENTRAR</Title>
-        <Form>
-          <Input
-            placeholder="email"
-            value={user}
-            onChange={(event) => setUser(event.target.value)}
-          />
-          <Input
-            type="password"
-            id="pass"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-          <Button onClick={handleSignIn}>LOGIN</Button>
-          {/* <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link> */}
+    <>
+      <Navbar />
+      <Container>
+        <Wrapper>
+          <Title>ENTRAR</Title>
+          <Form>
+            <Input
+              placeholder="email"
+              value={user}
+              onChange={(event) => setUser(event.target.value)}
+            />
+            <Input
+              type="password"
+              id="pass"
+              name="password"
+              placeholder="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <Button onClick={handleSignIn}>LOGIN</Button>
+            {/* <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link> */}
 
-          <Link onClick={handleSignIn2}>Nao tem uma conta? Registre-se</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+            <Link onClick={handleSignIn2}>Nao tem uma conta? Registre-se</Link>
+          </Form>
+        </Wrapper>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
