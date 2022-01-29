@@ -23,12 +23,19 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width-min: 85%;
-
   padding: 30px;
   background-color: #ffe4e1;
   ${mobile({ width: "75%" })}
 `;
 
+const Alert = styled.div`
+  width-min: 25%;
+  margin-top: 10px;
+  color: #fff;
+  padding: 5px;
+  background-color: #b22222;
+  ${mobile({ width: "75%" })}
+`;
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
@@ -69,6 +76,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [estado, setEstado] = useState(1);
 
   async function handleSignIn() {
     try {
@@ -77,6 +85,7 @@ const Login = () => {
       //INICIO IF
       if (rec === false) {
         // SE NAO ENCONTRAR DESTROI A INFORMAÇÃO NO LOCALSTORAGE
+        setEstado(2);
         await localStorage.removeItem("pass");
       } else {
         // SE EXISTIR CRIA UM OBJETO DE USUARIO
@@ -102,6 +111,7 @@ const Login = () => {
       <Wrapper>
         <Title>ENTRAR</Title>
         <Form>
+          {estado && estado === 2 ? <Alert>Email/Senha? incorretos</Alert> : ""}
           <Input
             placeholder="email"
             value={user}
@@ -117,7 +127,8 @@ const Login = () => {
           />
           <Button onClick={handleSignIn}>LOGIN</Button>
           {/* <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link> */}
-          <Link onClick={handleSignIn2}>NAO TEM UMA CONTA? Registre-se</Link>
+
+          <Link onClick={handleSignIn2}>Nao tem uma conta? Registre-se</Link>
         </Form>
       </Wrapper>
     </Container>
