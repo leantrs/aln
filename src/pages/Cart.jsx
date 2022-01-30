@@ -1,4 +1,6 @@
 //import { Add, Remove } from "@material-ui/icons";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -8,6 +10,7 @@ import React, { useState, useEffect } from "react";
 import cartkrn from "../actions/cartAction";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 //import { useSelector } from "react-redux";
 
 const Container = styled.div``;
@@ -161,7 +164,7 @@ const Buttonx = styled.button`
   border-radius: 10px;
   opacity: 0.5;
 `;
-
+toast.configure();
 const Cart = () => {
   const [teste, setTeste] = useState(null);
   const dispatch = useDispatch();
@@ -268,6 +271,7 @@ const Cart = () => {
           return item;
         });
       } else {
+        toast.warn("Necessario efetuar login / Nao usuario Registre-se");
         navigate("/Login");
       }
     } catch (error) {}

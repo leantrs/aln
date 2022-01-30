@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
+import Announcement from "../components/Announcement";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 170vh;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
@@ -16,16 +17,17 @@ const Container = styled.div`
     url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
       center;
   background-size: cover;
+  backgroundrepeat: none;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 300px;
   height: 90%;
   padding: 10px;
-  background-color: white;
+  background-color: #fff;
   ${mobile({ width: "75%" })}
 `;
 
@@ -120,6 +122,7 @@ const Register = () => {
   return (
     <>
       <Navbar />
+      <Announcement />
       <Container>
         <Wrapper>
           <Title>CRIE A SUA CONTA AQUI</Title>

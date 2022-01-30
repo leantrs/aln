@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Announcement from "../components/Announcement";
 
 const Container = styled.div`
    {
@@ -61,10 +62,22 @@ const Input = styled.input`
 
 const Button = styled.button`
   display: flex;
-  width: 40%;
+  width: 100%;
   border: none;
   padding: 15px 20px;
   background-color: #db7093;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+`;
+
+const Buttony = styled.button`
+  display: flex;
+  width: 100%;
+
+  border: none;
+  padding: 15px 20px;
+  background-color: #4682b4;
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
@@ -115,6 +128,8 @@ const Login = () => {
   return (
     <>
       <Navbar />
+      <Announcement />
+
       <Container>
         <Wrapper>
           <Title>ENTRAR</Title>
@@ -133,9 +148,13 @@ const Login = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
             <Button onClick={handleSignIn}>LOGIN</Button>
-            {/* <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link> */}
+            <Buttony onClick={handleSignIn2}>
+              Nao tem uma conta? Registre-se
+            </Buttony>
+            {/* <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link> 
 
             <Link onClick={handleSignIn2}>Nao tem uma conta? Registre-se</Link>
+            */}
           </Form>
         </Wrapper>
       </Container>
