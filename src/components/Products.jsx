@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Product from "../components/Product";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   padding: 20px;
@@ -35,7 +37,7 @@ const Button = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
   border-radius: 20px;
 `;
-
+toast.configure();
 const Products = () => {
   const [itemsf, setItemsf] = useState("");
   const [itensPerPage, setItensPerPage] = useState(10);
@@ -51,7 +53,7 @@ const Products = () => {
     () => {
       const url = window.location.href;
       const res = url.split("?");
-
+      setItensPerPage(10);
       buscarSliders(res[1]);
     }, // eslint-disable-next-line
     [estado == false]
@@ -79,7 +81,7 @@ const Products = () => {
       if (json !== "error") {
         setItemsf(json);
       } else {
-        alert("Produto não localizado no estoque");
+        toast.warn("Produto não localizado no estoque");
         navigate("/");
       }
       setEstado(true);

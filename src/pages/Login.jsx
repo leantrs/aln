@@ -75,19 +75,12 @@ const Buttony = styled.button`
   margin-bottom: 10px;
 `;
 
-const Link = styled.a`
-  margin: 5px 0px;
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-`;
 toast.configure();
 const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [estado, setEstado] = useState(1);
 
   async function handleSignIn() {
     try {

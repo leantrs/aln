@@ -7,7 +7,7 @@ import Sliderx from "../components/Sliderx";
 import { mobile } from "../responsive";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div``;
@@ -16,17 +16,6 @@ const Wrapper = styled.div`
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection: "column" })}
-`;
-const Alert = styled.div`
-  height: 20px;
-  width: 100%;
-
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #fff;
-
-  background-color: #b22222;
-  ${mobile({ width: "75%" })}
 `;
 
 const InfoContainer = styled.div`

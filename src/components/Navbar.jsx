@@ -26,23 +26,6 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-const Buttonx = styled.button`
-  display: flex;
-  background-color: #db7093;
-  color: white;
-  padding: 1px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-const Input = styled.input`
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width-max: 20%;
-  color: black;
-  font-weight: 300;
-`;
-
 const Image = styled.img`
    {
     height: 50px;
@@ -60,7 +43,6 @@ function Navbar() {
   const dispatch = useDispatch();
   const [rec, setRec] = useState("Default");
   const [user, setUser] = useState("20");
-  const [refx, setRefx] = useState("");
   const [estado, setEstado] = useState(false);
 
   useEffect(
@@ -110,24 +92,6 @@ function Navbar() {
   const closeMobileMenu = (rec) => {
     setClick(false);
   };
-
-  async function handleSignIn() {
-    const url1 = window.location.href;
-    const res1 = url1.split("/");
-    const res2 = res1[3].split("?");
-
-    if (res2[0] === "ProductList") {
-      // eslint-disable-next-line
-      navigate("/ProductList" + "?" + refx);
-      window.location.reload();
-    } else {
-      if (res2[1] === undefined) {
-        // eslint-disable-next-line
-        navigate("/ProductList" + "?" + refx);
-      } else {
-      }
-    }
-  }
 
   async function handleSignIn2() {
     // eslint-disable-next-line
@@ -199,30 +163,6 @@ function Navbar() {
 
       <Right>
         <MenuItem>{rec && rec["email"]}</MenuItem>
-        <MenuItem>
-          <b>Frete Grátis</b>
-        </MenuItem>
-        {/* 
-        <MenuItem>
-          <Input
-            type="text"
-            value={refx}
-            onChange={(event) => setRefx(event.target.value)}
-            placeholder="Procurar"
-          />
-        </MenuItem>
-
-        <MenuItem>
-          <Buttonx
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={handleSignIn}
-          >
-            ok
-          </Buttonx>
-        </MenuItem>
-        */}
 
         <MenuItem>
           <Badge badgeContent={Object.keys(todos).length} color="primary">

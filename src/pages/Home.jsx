@@ -9,6 +9,7 @@ import listarProdutos from "../services/listarProdutos";
 import { useDispatch } from "react-redux";
 import signIn from "../actions/listaActions";
 import cartkrn from "../actions/cartAction";
+import Pesquisar from "../components/Pesquisar";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Announcement />
+      <Pesquisar />
       <Slider />
       <Categories />
       <Products />
