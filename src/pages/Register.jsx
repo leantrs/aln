@@ -6,10 +6,16 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
+import InputCEP from "../components/InputCEP";
+import InputNormal from "../components/InputNormal";
+import InputNasc from "../components/InputNasc";
+import InputCPF from "../components/InputCPF";
+import InputCELULAR from "../components/InputCELULAR";
+import "./Register.css";
 
 const Container = styled.div`
   width: 100%;
-  height: 170vh;
+  height: 130vh;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
@@ -58,6 +64,7 @@ const Button = styled.button`
   display: flex;
   width: 40%;
   border: none;
+  margin-top: 10px;
   padding: 15px 20px;
   background-color: #db7093;
   color: white;
@@ -127,77 +134,78 @@ const Register = () => {
         <Wrapper>
           <Title>CRIE A SUA CONTA AQUI</Title>
           <Form>
-            <Input
-              placeholder="Nome"
+            <InputNormal
+              className="inputc"
+              placeholder="Nome Completo"
               value={nome}
               onChange={(event) => setNome(event.target.value)}
             />
-            <Input
+            <InputNasc
               placeholder="Nascimento"
               value={nascimento}
               onChange={(event) => setNascimento(event.target.value)}
             />
-            <Input
+            <InputCPF
               placeholder="Cpf"
               value={documento}
               onChange={(event) => setDocumento(event.target.value)}
             />
-            <Input
+            <InputNormal
               placeholder="Email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
-            <Input
+            <InputCELULAR
               placeholder="Celular"
               value={celular}
               onChange={(event) => setCelular(event.target.value)}
             />
-
-            <Input
-              placeholder="Endereco"
-              value={endereco}
-              onChange={(event) => setEndereco(event.target.value)}
-            />
-            <Input
-              placeholder="Numero"
-              value={numero}
-              onChange={(event) => setNumero(event.target.value)}
-            />
-            <Input
-              placeholder="Bairro"
-              value={bairro}
-              onChange={(event) => setBairro(event.target.value)}
-            />
-
-            <Input
-              placeholder="Cidade"
-              value={cidade}
-              onChange={(event) => setCidade(event.target.value)}
-            />
-            <Input
-              placeholder="Estado"
-              value={estado}
-              onChange={(event) => setEstado(event.target.value)}
-            />
-            <Input
+            <InputCEP
               placeholder="CEP"
               value={cep}
               onChange={(event) => setCep(event.target.value)}
             />
 
-            <Input
+            <InputNormal
+              placeholder="Endereco"
+              value={endereco}
+              onChange={(event) => setEndereco(event.target.value)}
+            />
+            <InputNormal
+              placeholder="Complemento"
+              value={numero}
+              onChange={(event) => setNumero(event.target.value)}
+            />
+            <InputNormal
+              placeholder="Bairro"
+              value={bairro}
+              onChange={(event) => setBairro(event.target.value)}
+            />
+
+            <InputNormal
+              placeholder="Cidade"
+              value={cidade}
+              onChange={(event) => setCidade(event.target.value)}
+            />
+            <InputNormal
+              placeholder="Estado"
+              value={estado}
+              onChange={(event) => setEstado(event.target.value)}
+            />
+
+            <InputNormal
               placeholder="Senha"
               value={senha}
               onChange={(event) => setSenha(event.target.value)}
             />
-            <Input
+            <InputNormal
               placeholder="Confirmacao Senha"
               value={confirmacaoSenha}
               onChange={(event) => setConfirmacaoSenha(event.target.value)}
             />
           </Form>
 
-          <Agreement>-</Agreement>
+          <Agreement></Agreement>
           <Button
             onClick={handleSignIn}
             // onClick={notify}
